@@ -188,6 +188,17 @@ footer p {margin: 0.3rem 0;}
   }
 }
 
+  /* Transformación hamburguesa -> X */
+.menu-toggle.active span:nth-child(1) {
+  transform: rotate(45deg) translate(5px, 5px);
+}
+.menu-toggle.active span:nth-child(2) {
+  opacity: 0;
+}
+.menu-toggle.active span:nth-child(3) {
+  transform: rotate(-45deg) translate(5px, -5px);
+}
+
 
 </style>
 
@@ -303,18 +314,16 @@ footer p {margin: 0.3rem 0;}
     <p><a href="#inicio" style="color: white; text-decoration: underline;">Volver arriba</a></p>
   </footer>
 
-  <script>
-const nav = document.querySelector('nav');
-nav.addEventListener('click', () => nav.classList.toggle('active'));
-</script>
 
   <script>
   const toggle = document.getElementById('menu-toggle');
   const navLinks = document.querySelector('nav ul');
   toggle.addEventListener('click', () => {
-    navLinks.classList.toggle('show');
+    navLinks.classList.toggle('show');   // muestra/oculta menú
+    toggle.classList.toggle('active');   // transforma en X
   });
 </script>
+
 
   
 </body>
