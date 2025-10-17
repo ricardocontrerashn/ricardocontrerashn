@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>My Teaching World | Aprende Sin Fronteras</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <style>
+    * {margin: 0; padding: 0; box-sizing: border-box; font-family: 'Poppins', sans-serif;}
+    body {background: #fdfdfd; color: #333; scroll-behavior: smooth;}
+
+    header {position: fixed; top: 0; width: 100%; background: rgba(255,255,255,0.95); box-shadow: 0 2px 8px rgba(0,0,0,0.1); z-index: 1000;}
+    nav {display: flex; justify-content: space-between; align-items: center; padding: 1rem 3rem;}
+    nav h1 {font-size: 1.6rem; color: #0078ff; font-weight: 700; letter-spacing: 1px;}
+    nav ul {list-style: none; display: flex; gap: 2rem;}
+    nav ul li a {text-decoration: none; color: #333; font-weight: 500; transition: color 0.3s;}
+    nav ul li a:hover {color: #1976D2;}
+
+.hero {
+  position: relative;
+  height: 100vh;
+  background: url('https://images.unsplash.com/photo-1523240795612-9a054b0db644?auto=format&fit=crop&w=1920&q=80') center/cover no-repeat;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  color: white;
+  padding: 0 2rem;
+  overflow: hidden;
+}
+
+/* Capa oscura encima de la imagen */
+.hero::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.55); /* 🔦 Oscurece la imagen */
+  z-index: 1;
+}
+
+/* Asegura que el texto esté por encima de la capa oscura */
+.hero h2, 
+.hero p, 
+.hero a {
+  position: relative;
+  z-index: 2;
+}
+
+/* 🔸 Color anaranjado/amarillo solo para el título */
+.hero h2 {
+  font-size: 4rem;
+  font-weight: 800;
+  margin-bottom: 1rem;
+  color: #FFD54F; /* Amarillo-anaranjado */
+  text-shadow: 3px 3px 10px rgba(0,0,0,0.5);
+  animation: fadeIn 1.5s ease;
+}
+
+/* 🔹 Mantiene el párrafo igual que antes */
+.hero p {
+  font-size: 1.4rem;
+  max-width: 700px;
+  margin-bottom: 2.5rem;
+  color: white !important; /* 🔥 se mantiene blanco */
+  text-shadow: 2px 2px 6px rgba(0,0,0,0.25);
+  animation: fadeIn 2s ease;
+}
+
+
+
+    .btn-primary {background: linear-gradient(90deg, #fff, #f0f8ff); color: #0078ff; padding: 1rem 2rem; border-radius: 50px; font-weight: 700; text-decoration: none; font-size: 1.2rem; box-shadow: 0 4px 15px rgba(255,255,255,0.3); transition: all 0.3s ease;}
+    .btn-primary:hover {background: #0078ff; color: #fff; transform: scale(1.05); box-shadow: 0 6px 20px rgba(0,0,0,0.3);}
+
+    @keyframes fadeIn {from {opacity: 0; transform: translateY(20px);} to {opacity: 1; transform: translateY(0);}}
+
+    section {padding: 5rem 10%; text-align: center;}
+    section h2 {font-size: 2.4rem; color: #0078ff; margin-bottom: 1rem;}
+    section p {font-size: 1rem; color: #555; margin-bottom: 2rem;}
+
+    .courses {display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2rem;}
+    .card {background: #fff; border-radius: 20px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); padding: 2rem; transition: transform 0.3s, box-shadow 0.3s;}
+    .card:hover {transform: translateY(-10px); box-shadow: 0 6px 20px rgba(0,0,0,0.15);}
+    .card img {width: 100%; border-radius: 15px; margin-bottom: 1rem;}
+    .card h3 {color: #333; margin-bottom: 0.5rem;}
+
+    .cta {background: linear-gradient(135deg, #0078ff, #00c8ff); color: white; padding: 4rem 2rem; border-radius: 20px; max-width: 900px; margin: 3rem auto; text-align: center;}
+    .cta h3 {font-size: 2rem; margin-bottom: 1rem;}
+    .cta a {background: white; color: #0078ff; padding: 0.8rem 1.6rem; border-radius: 30px; text-decoration: none; font-weight: 600; transition: all 0.3s;}
+    .cta a:hover {background: #e0f3ff; transform: scale(1.05);}
+
+    footer {background: #0078ff; color: white; text-align: center; padding: 2rem; margin-top: 5rem;}
+    footer p {margin: 0.3rem 0;}
+  </style>
+</head>
+<body>
+
+  <header>
+    <nav>
+      <h1>My Teaching World</h1>
+      <ul>
+        <li><a href="#inicio">Inicio</a></li>
+        <li><a href="#ingles">Inglés</a></li>
+        <li><a href="#idiomas">Otros Idiomas</a></li>
+        <li><a href="#tecnologia">Tecnología</a></li>
+        <li><a href="#steam">STEAM</a></li>
+        <li><a href="#contacto">Contacto</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <section class="hero" id="inicio">
+    <h2>Education without borders</h2>
+    <p>Únete a My Teaching World, donde el aprendizaje rompe fronteras. Domina idiomas, desarrolla habilidades tecnológicas y alcanza tu máximo potencial desde cualquier parte del mundo.</p>
+    <a href="#ingles" class="btn-primary">Explorar Cursos</a>
+  </section>
+
+  <section id="ingles">
+    <h2>Curso de Inglés Online</h2>
+    <p>Aprende inglés con clases en vivo, profesores certificados y una metodología práctica para hablar con confianza.</p>
+    <div class="courses">
+      <div class="card">
+        <img src="https://github.com/ricardocontrerashn/myteachingworld-assets/blob/main/Adultos%20Online.png?raw=true" alt="Inglés para Adultos">
+        <h3>Inglés para Adultos</h3>
+        <p>Empieza desde cero con clases interactivas y actividades divertidas.</p>
+      </div>
+      <div class="card">
+        <img src="https://github.com/ricardocontrerashn/myteachingworld-assets/blob/main/Ninos.png?raw=true" alt="Inglés para Niños">
+        <h3>Inglés para Niños</h3>
+        <p>Desarrolla fluidez con clases de conversación y práctica real.</p>
+      </div>
+    </div>
+  </section>
+
+    <section id="idiomas">
+    <h2>Otros Idiomas</h2>
+    <p>Explora el mundo aprendiendo nuevos idiomas con profesores nativos.</p>
+    <div class="courses">
+      <div class="card">
+        <img src="https://github.com/ricardocontrerashn/myteachingworld-assets/blob/main/Frances.jpg?raw=true" alt="Francés">
+        <h3>Francés</h3>
+        <p>Descubre la belleza del idioma del amor con lecciones inmersivas.</p>
+      </div>
+      <div class="card">
+        <img src="https://github.com/ricardocontrerashn/myteachingworld-assets/blob/main/Italiano.jpg?raw=true" alt="Italiano">
+        <h3>Italiano</h3>
+        <p>Aprende italiano con clases dinámicas centradas en la cultura.</p>
+      </div>
+      <div class="card">
+        <img src="https://github.com/ricardocontrerashn/myteachingworld-assets/blob/main/Aleman.jpg?raw=true" alt="Alemán">
+        <h3>Alemán</h3>
+        <p>Domina el idioma de la ingeniería y la ciencia paso a paso.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="tecnologia">
+    <h2>Tecnología y Programación</h2>
+    <p>Aprende habilidades del futuro: programación, robótica y más.</p>
+    <div class="courses">
+      <div class="card">
+        <img src="https://github.com/ricardocontrerashn/myteachingworld-assets/blob/main/Robotica-educativa-que-es-y-cuales-son-sus-ventajas.jpg?raw=true" alt="Programación">
+        <h3>Programación para Niños y Jóvenes</h3>
+        <p>Descubre el poder de crear con código de forma divertida.</p>
+      </div>
+      <div class="card">
+        <img src="https://github.com/ricardocontrerashn/myteachingworld-assets/blob/main/robotica-educativa-2021.jpg?raw=true" alt="Robótica Educativa">
+        <h3>Robótica Educativa</h3>
+        <p>Despierta la creatividad construyendo y programando robots.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="steam">
+    <h2>Educación STEAM</h2>
+    <p>Integrando Ciencia, Tecnología, Ingeniería, Arte y Matemáticas para el aprendizaje del siglo XXI.</p>
+    <div class="courses">
+      <div class="card">
+        <img src="https://github.com/ricardocontrerashn/myteachingworld-assets/blob/0c502a9465c62e3fa64dad9cba1b0b07e579f73c/STEAM.png?raw=true?auto=format&fit=crop&w=800&q=80" alt="STEAM Projects">
+        <h3>Proyectos STEAM</h3>
+        <p>Aprendizaje basado en proyectos reales que inspiran a innovar.</p>
+      </div>
+    </div>
+  </section>
+
+  <div class="cta" id="contacto">
+    <h3>Comienza tu aventura de aprendizaje hoy</h3>
+    <p>Inscríbete y forma parte de una comunidad global que aprende, crea e innova.</p>
+<br>
+<br>
+    <a href="https://wa.me/50433918660?text=Necesito%20más%20información" target="_blank">
+  Contáctanos por WhatsApp
+</a>
+  </div>
+
+  <footer>
+    <p>© 2025 My Teaching World. Todos los derechos reservados.</p>
+    <p><a href="#inicio" style="color: white; text-decoration: underline;">Volver arriba</a></p>
+  </footer>
+
+</body>
+</html>
+
