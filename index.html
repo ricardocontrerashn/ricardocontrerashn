@@ -143,32 +143,6 @@ footer {
 }
 footer p {margin: 0.3rem 0;}
 
-/* ✅ RESPONSIVE */
-@media (max-width: 768px) {
-  nav ul {
-    display: none;
-    flex-direction: column;
-    background: white;
-    position: absolute;
-    top: 70px; right: 0;
-    width: 70%;
-    padding: 1rem;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-  }
-  nav.active ul { display: flex; }
-
-  nav::after {
-    content: "☰";
-    font-size: 1.8rem;
-    color: #0078ff;
-    cursor: pointer;
-  }
-
-  .hero h2 {font-size: 2.4rem;}
-  .hero p {font-size: 1.1rem;}
-  .btn-primary {font-size: 1rem; padding: 0.8rem 1.6rem;}
-}
-
   /* --- MENÚ RESPONSIVO --- */
 .menu-toggle {
   display: none;
