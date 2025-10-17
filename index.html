@@ -32,6 +32,7 @@ nav h1 {
   font-size: 1.6rem; color: #0078ff; font-weight: 700;
   letter-spacing: 1px;
 }
+ 
 nav ul {
   list-style: none;
   display: flex; gap: 2rem;
@@ -167,6 +168,39 @@ footer p {margin: 0.3rem 0;}
   .hero p {font-size: 1.1rem;}
   .btn-primary {font-size: 1rem; padding: 0.8rem 1.6rem;}
 }
+
+  /* --- MENÚ RESPONSIVO --- */
+.menu-toggle {
+  display: none;
+  flex-direction: column;
+  cursor: pointer;
+}
+.menu-toggle span {
+  width: 25px;
+  height: 3px;
+  background: #0078ff;
+  margin: 4px 0;
+  transition: all 0.3s;
+}
+
+@media (max-width: 768px) {
+  nav ul {
+    position: absolute;
+    top: 70px;
+    left: 0;
+    background: white;
+    width: 100%;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+    padding: 1.5rem 0;
+    display: none;  /* oculta por defecto */
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  }
+  nav ul.show { display: flex; } /* se activa al hacer clic */
+  .menu-toggle { display: flex; } /* muestra hamburguesa */
+}
+
 </style>
 
 
@@ -176,6 +210,11 @@ footer p {margin: 0.3rem 0;}
   <header>
     <nav>
       <h1>My Teaching World</h1>
+        <div class="menu-toggle" id="menu-toggle">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
       <ul>
         <li><a href="#inicio">Inicio</a></li>
         <li><a href="#ingles">Inglés</a></li>
@@ -281,6 +320,15 @@ const nav = document.querySelector('nav');
 nav.addEventListener('click', () => nav.classList.toggle('active'));
 </script>
 
+  <script>
+  const toggle = document.getElementById('menu-toggle');
+  const navLinks = document.querySelector('nav ul');
+  toggle.addEventListener('click', () => {
+    navLinks.classList.toggle('show');
+  });
+</script>
+
+  
 </body>
 </html>
 
