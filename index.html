@@ -221,6 +221,46 @@ footer p {margin: 0.3rem 0;}
     white-space: nowrap; /* evita que se parta en dos líneas */
   }
 }
+
+/* --- Ajustes para el logo y título en el header --- */
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+
+/* tamaño y alineación del texto del logo en desktop */
+.logo h1 {
+  font-size: 1.2rem;   /* un poco más pequeño que nav h1 original */
+  margin: 0;
+  font-weight: 700;
+  color: #0078ff;
+  white-space: nowrap; /* evita quiebres por defecto */
+}
+
+/* --- Ajustes específicos para móviles (pantallas pequeñas) --- */
+@media (max-width: 768px) {
+  /* Reduce aún más el texto del logo en móvil para asegurar que no salte */
+  .logo h1 {
+    font-size: 0.95rem;   /* prueba con 0.95rem — cámbialo a 0.9rem si aún se parte */
+    line-height: 1;
+    white-space: nowrap;  /* fuerza que se mantenga en una sola línea */
+    overflow: hidden;
+    text-overflow: ellipsis; /* si no cabe, muestra ... pero no corta en dos líneas */
+    max-width: calc(100vw - 120px); /* evita que ocupe todo el ancho (deja espacio para menú) */
+  }
+
+  /* Opcional: reduce tamaño del logo (imagen) en móviles */
+  .logo img {
+    height: 34px; /* ajusta si quieres más pequeño */
+  }
+
+  /* Asegura que el contenedor nav no obligue a saltos */
+  nav {
+    padding: 0.7rem 1rem;
+  }
+}
+
   
 </style>
 
