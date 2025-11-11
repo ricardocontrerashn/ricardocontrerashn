@@ -699,7 +699,68 @@ footer p {margin: 0.3rem 0;}
 }
 
 
+/*NUEVO ULTIMO STYLE*/
 
+  /* 🌟 BORDE AZUL + LUZ RECORRIENDO TODO EL CONTORNO EN HOVER */
+
+.pricing-card {
+  position: relative;
+  border-radius: 20px;
+  padding: 30px;
+  background: #fff;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border: 2px solid #2563eb; /* borde azul visible siempre */
+}
+
+/* Efecto al hacer hover */
+.pricing-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 15px 35px rgba(37, 99, 235, 0.18);
+}
+
+/* === Luz girando alrededor del borde === */
+.pricing-card::before {
+  content: "";
+  position: absolute;
+  inset: -2px; /* se posiciona fuera del borde para iluminarlo */
+  border-radius: 22px;
+  background: conic-gradient(
+    from 0deg,
+    transparent 0deg,
+    #3b82f6 60deg,
+    transparent 120deg,
+    #3b82f6 180deg,
+    transparent 240deg,
+    #60a5fa 300deg,
+    transparent 360deg
+  );
+  z-index: 2;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+  animation: spinLight 3s linear infinite;
+  mask: 
+    linear-gradient(#fff 0 0) content-box, 
+    linear-gradient(#fff 0 0);
+  mask-composite: exclude;
+  -webkit-mask-composite: xor;
+}
+
+/* Solo visible al pasar el mouse */
+.pricing-card:hover::before {
+  opacity: 1;
+}
+
+/* Animación de rotación completa de la luz */
+@keyframes spinLight {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+
+  
     
 </style>
 
