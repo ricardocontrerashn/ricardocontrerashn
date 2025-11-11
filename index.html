@@ -585,67 +585,121 @@ footer p {margin: 0.3rem 0;}
 
 /*NUEVO ULTIMO STYLE*/
 
-  /* 🌟 BORDE AZUL + LUZ RECORRIENDO TODO EL CONTORNO EN HOVER */
+/* ======== EFECTO DE BORDE AZUL EN TODAS LAS TARJETAS ======== */
+
+.pricing-card {
+  position: relative;
+  border: 2px solid transparent;
+  border-radius: 20px;
+  background-clip: padding-box;
+  transition: all 0.3s ease;
+  background: white;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+  padding: 30px;
+  max-width: 380px;
+}
+
+/* El card destacado conserva su borde azul */
+/*.highlight {
+  border: 2px solid #2563eb;
+  background: linear-gradient(180deg, #ffffff 0%, #f0f7ff 100%);
+}*/
+
+/* 👇 Efecto hover: los 3 muestran borde azul y fondo claro */
+.pricing-card:hover {
+  border: 2px solid #2563eb;
+  background: linear-gradient(180deg, #ffffff 0%, #f0f7ff 100%);
+  box-shadow: 0 15px 35px rgba(37, 99, 235, 0.18);
+  transform: translateY(-6px);
+}
+
+/* Transiciones suaves */
+.pricing-card {
+  transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease, background 0.25s ease;
+}
+
+/* ======== OPCIONAL: efecto de resplandor leve al hacer hover ======== */
+.pricing-card:hover::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 20px;
+  box-shadow: 0 0 20px rgba(37, 99, 235, 0.25);
+  pointer-events: none;
+}
+
+  
+  
+/* Mantén las proporciones responsivas */
+@media (min-width: 1024px) {
+  .pricing-card {
+    max-width: 420px;
+  }
+}
+
+ /* ====== BORDE AZUL CON LUZ EN MOVIMIENTO SOLO EN HOVER ====== */
 
 .pricing-card {
   position: relative;
   border-radius: 20px;
   padding: 30px;
-  background: #fff;
-  box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+  background: white;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+  max-width: 380px;
   overflow: hidden;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
-  border: 2px solid #2563eb; /* borde azul visible siempre */
 }
 
-/* Efecto al hacer hover */
+/* Borde invisible por defecto */
+.pricing-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 20px;
+  border: 2px solid transparent;
+  background: linear-gradient(
+      90deg,
+      transparent,
+      rgba(37, 99, 235, 0.9),
+      transparent
+    )
+    border-box;
+  mask: linear-gradient(#fff 0 0) padding-box, linear-gradient(#fff 0 0);
+  mask-composite: exclude;
+  -webkit-mask-composite: destination-out;
+  opacity: 0;
+  z-index: 2;
+  pointer-events: none;
+}
+
+/* Animación solo al hacer hover */
+.pricing-card:hover::before {
+  opacity: 1;
+  animation: moveLight 1.5s linear infinite;
+}
+
+/* Efecto de movimiento de la luz (recorre el borde) */
+@keyframes moveLight {
+  0% {
+    background-position: 0% 50%;
+  }
+  100% {
+    background-position: 200% 50%;
+  }
+}
+
+/* Hover: sin llenar fondo, solo efecto de borde */
 .pricing-card:hover {
   transform: translateY(-6px);
   box-shadow: 0 15px 35px rgba(37, 99, 235, 0.18);
 }
 
-/* === Luz girando alrededor del borde === */
-.pricing-card::before {
-  content: "";
-  position: absolute;
-  inset: -2px; /* se posiciona fuera del borde para iluminarlo */
-  border-radius: 22px;
-  background: conic-gradient(
-    from 0deg,
-    transparent 0deg,
-    #3b82f6 60deg,
-    transparent 120deg,
-    #3b82f6 180deg,
-    transparent 240deg,
-    #60a5fa 300deg,
-    transparent 360deg
-  );
-  z-index: 2;
-  opacity: 0;
-  pointer-events: none;
-  transition: opacity 0.3s ease;
-  animation: spinLight 3s linear infinite;
-  mask: 
-    linear-gradient(#fff 0 0) content-box, 
-    linear-gradient(#fff 0 0);
-  mask-composite: exclude;
-  -webkit-mask-composite: xor;
+/* En pantallas grandes, mantiene ancho amplio */
+@media (min-width: 1024px) {
+  .pricing-card {
+    max-width: 420px;
+  }
 }
-
-/* Solo visible al pasar el mouse */
-.pricing-card:hover::before {
-  opacity: 1;
-}
-
-/* Animación de rotación completa de la luz */
-@keyframes spinLight {
-  0% { transform: rotate(0deg); }
-  100% { transform: rotate(360deg); }
-}
-
-
-  
-    
 </style>
 
 
