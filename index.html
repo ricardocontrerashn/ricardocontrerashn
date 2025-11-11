@@ -625,7 +625,107 @@ footer p {margin: 0.3rem 0;}
   pointer-events: none;
 }
 
+  
+  
 /* Mantén las proporciones responsivas */
+@media (min-width: 1024px) {
+  .pricing-card {
+    max-width: 420px;
+  }
+}
+
+  /* ======= EFECTO DE BORDE CON LUZ EN MOVIMIENTO ======= */
+
+.pricing-card {
+  position: relative;
+  border: 2px solid transparent;
+  border-radius: 20px;
+  background: white;
+  background-clip: padding-box;
+  overflow: hidden;
+  transition: all 0.3s ease;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+  padding: 30px;
+  max-width: 380px;
+}
+
+/* Capa base de borde animado (ya tenías esto) */
+.pricing-card::before {
+  content: "";
+  position: absolute;
+  inset: -2px;
+  border-radius: 22px;
+  background: linear-gradient(
+    120deg,
+    #2563eb,
+    #3b82f6,
+    #60a5fa,
+    #3b82f6,
+    #2563eb
+  );
+  background-size: 300% 300%;
+  z-index: -1;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  animation: borderFlow 5s linear infinite;
+}
+
+/* ✨ Capa de luz que recorre el borde */
+.pricing-card::after {
+  content: "";
+  position: absolute;
+  inset: -2px;
+  border-radius: 22px;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(255,255,255,0.9) 50%,
+    transparent 100%
+  );
+  z-index: -1;
+  opacity: 0;
+  transform: rotate(0deg);
+  animation: lightSweep 3s linear infinite;
+  pointer-events: none;
+}
+
+/* Hover activa los efectos */
+.pricing-card:hover::before,
+.pricing-card:hover::after {
+  opacity: 1;
+}
+
+/* Animación del color azul */
+@keyframes borderFlow {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* 💡 Animación de la luz recorriendo */
+@keyframes lightSweep {
+  0% {
+    transform: rotate(0deg);
+    opacity: 0.3;
+  }
+  50% {
+    transform: rotate(360deg);
+    opacity: 0.6;
+  }
+  100% {
+    transform: rotate(720deg);
+    opacity: 0.3;
+  }
+}
+
+/* Hover general */
+.pricing-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 15px 35px rgba(37, 99, 235, 0.18);
+  background: linear-gradient(180deg, #ffffff 0%, #f0f7ff 100%);
+}
+
+/* Responsive: más ancho en desktop */
 @media (min-width: 1024px) {
   .pricing-card {
     max-width: 420px;
