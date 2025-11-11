@@ -46,6 +46,81 @@ nav ul li a {
 }
 nav ul li a:hover { color: #1976D2; }
 
+
+  /* ===== SECCIÓN NOSOTROS ===== */
+.about {
+  text-align: center;
+  padding: 60px 20px;
+  background: #f9fafc;
+}
+
+.about h2 {
+  font-size: 2.2rem;
+  color: #222;
+  margin-bottom: 40px;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+}
+
+/* Contenedor tipo card */
+.about-card {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 40px;
+  background: #fff;
+  border-radius: 20px;
+  box-shadow: 0 6px 25px rgba(0, 0, 0, 0.08);
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 40px;
+}
+
+/* Imagen del equipo */
+.about-image img {
+  width: 100%;
+  max-width: 450px;
+  border-radius: 16px;
+  object-fit: cover;
+  transition: transform 0.4s ease;
+}
+
+.about-image img:hover {
+  transform: scale(1.03);
+}
+
+/* Texto */
+.about-text {
+  flex: 1;
+  text-align: left;
+}
+
+.about-text p {
+  font-size: 1.05rem;
+  line-height: 1.7;
+  color: #444;
+  margin-bottom: 18px;
+}
+
+/* Responsividad */
+@media (max-width: 900px) {
+  .about-card {
+    flex-direction: column;
+    text-align: center;
+    padding: 30px 20px;
+  }
+
+  .about-image img {
+    max-width: 90%;
+  }
+
+  .about-text {
+    text-align: center;
+  }
+}
+
+
 /* 🔹 HERO */
 .hero {
   position: relative;
@@ -382,20 +457,26 @@ footer p {margin: 0.3rem 0;}
 
 <section id="nosotros" class="about">
   <h2>Sobre Nosotros</h2>
-  <div class="about-intro">
-    <img src="https://github.com/ricardocontrerashn/myteachingworld-assets/blob/main/babies.png?raw=true" alt="Clases de inglés online" class="main-image">
+
+  <div class="about-card">
+    <div class="about-image">
+      <img src="https://github.com/ricardocontrerashn/myteachingworld-assets/blob/main/babies.png?raw=true" alt="Equipo docente MyTeachingWorld">
+    </div>
+
     <div class="about-text">
       <p>
-        Somos un equipo apasionado por <strong>enseñar inglés de forma online</strong> a niños, jóvenes y adultos. 
-        Combinamos la <strong>experiencia educativa</strong> con las más innovadoras <strong>herramientas tecnológicas</strong> 
-        para que aprender inglés sea una experiencia <strong>práctica, divertida y efectiva</strong>.
+        Somos un equipo apasionado por <strong>enseñar inglés online</strong> a niños, jóvenes y adultos. 
+        Combinamos la <strong>experiencia educativa</strong> con <strong>tecnología innovadora</strong> 
+        para crear clases dinámicas, personalizadas y llenas de motivación.
       </p>
       <p>
-        Nuestra misión es ayudarte a alcanzar tus metas comunicativas, profesionales y académicas, 
-        guiándote paso a paso con una metodología moderna, interactiva y centrada en ti.
+        Nuestra misión es ayudarte a comunicarte con confianza, 
+        guiándote paso a paso con una metodología <strong>moderna, práctica e inspiradora</strong>.
       </p>
     </div>
   </div>
+</section>
+
 
   <section id="precios">
     <h2>Precios de nuestros cursos</h2>
