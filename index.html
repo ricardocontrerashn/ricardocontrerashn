@@ -533,6 +533,55 @@ footer p {margin: 0.3rem 0;}
   /* 🔹 Padding nav más compacto */
   nav { padding: 0.7rem 1rem; }
 }
+
+  /* Precio anterior tachado */
+.old {
+  text-decoration: line-through;
+  color: #94a3b8;
+  font-size: 1rem;
+  margin-right: 6px;
+}
+
+/* Etiqueta de “Más popular” */
+.badge {
+  background: #2563eb;
+  color: white;
+  font-size: 0.8rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  padding: 5px 12px;
+  border-radius: 20px;
+  display: inline-block;
+  margin-bottom: 8px;
+  box-shadow: 0 4px 10px rgba(37,99,235,0.3);
+}
+
+/* Ajuste del precio */
+.price {
+  font-size: 1.9rem;
+  font-weight: bold;
+  color: #0f172a;
+}
+
+.price span {
+  font-size: 1rem;
+  color: #64748b;
+}
+
+/* Hover elegante */
+.pricing-card:hover {
+  transform: scale(1.02);
+  box-shadow: 0 15px 35px rgba(0,0,0,0.12);
+  transition: all 0.3s ease;
+}
+
+/* Mantén tus cards anchas solo en desktop */
+@media (min-width: 1024px) {
+  .pricing-card {
+    max-width: 420px;
+  }
+}
+
     
 </style>
 
@@ -637,10 +686,13 @@ footer p {margin: 0.3rem 0;}
   <p class="subtitle">Elige la opción que mejor se adapte a ti</p>
 
   <div class="pricing-container">
+
     <!-- Plan 1: Clases 1:1 -->
     <div class="pricing-card">
       <h3>Clases 1:1</h3>
-      <p class="price">L. 3,000 <span>/ mes</span></p>
+      <p class="price">
+        <span class="old">L. 3,200</span> L. 2,999 <span>/ mes</span>
+      </p>
       <ul>
         <li>🕒 Miércoles y Jueves de 5:00 a 6:00 pm</li>
         <li>📘 Acceso total a la plataforma</li>
@@ -656,8 +708,11 @@ footer p {margin: 0.3rem 0;}
 
     <!-- Plan 2: Clases Grupales -->
     <div class="pricing-card highlight">
+      <div class="badge">Más popular</div>
       <h3>Clases Grupales</h3>
-      <p class="price">L. 2,369 <span>/ mes</span></p>
+      <p class="price">
+        <span class="old">L. 2,500</span> L. 2,299 <span>/ mes</span>
+      </p>
       <ul>
         <li>👥 Lunes y Martes de 5:00 a 6:00 pm</li>
         <li>📘 Acceso total a la plataforma</li>
@@ -674,7 +729,9 @@ footer p {margin: 0.3rem 0;}
     <!-- Plan 3: Cursos Grabados -->
     <div class="pricing-card">
       <h3>Cursos Grabados</h3>
-      <p class="price">L. 1,500 <span>/ mes</span></p>
+      <p class="price">
+        <span class="old">L. 1,600</span> L. 1,499 <span>/ mes</span>
+      </p>
       <ul>
         <li>🎥 2 videos de 1 hora cada semana</li>
         <li>📘 Acceso total a la plataforma</li>
@@ -686,6 +743,7 @@ footer p {margin: 0.3rem 0;}
         <a href="https://wa.me/50433918660?text=Hola!%20Quiero%20una%20prueba%20del%20curso%20grabado" class="btn secondary"><i class="fa-brands fa-whatsapp"></i> Solicitar prueba</a>
       </div>
     </div>
+
   </div>
 
   <p class="duration">📅 Duración total del curso: <strong>1.5 años</strong></p>
