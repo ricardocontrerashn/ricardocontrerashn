@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>My Teaching World | Aprende Sin Fronteras</title>
   <link rel="icon" type="image/png" href="https://github.com/ricardocontrerashn/myteachingworld-assets/blob/main/android-chrome-512x512.png?raw=true">
-
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
 
 <style>
@@ -122,7 +122,7 @@ nav ul li a:hover { color: #1976D2; }
 
 /* Precios */
 
-  .pricing {
+.pricing {
   text-align: center;
   padding: 80px 20px;
   background: #f8fafc;
@@ -206,10 +206,19 @@ nav ul li a:hover { color: #1976D2; }
 
 .btn {
   text-decoration: none;
-  padding: 10px 15px;
+  padding: 12px 16px;
   border-radius: 10px;
   font-weight: 600;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
   transition: all 0.3s ease;
+  font-size: 0.95rem;
+}
+
+.btn i {
+  font-size: 1.1rem;
 }
 
 .btn.primary {
@@ -256,7 +265,11 @@ nav ul li a:hover { color: #1976D2; }
   .btn {
     font-size: 0.9rem;
   }
+  .btn i {
+    font-size: 1rem;
+  }
 }
+
 
 
   
@@ -634,8 +647,8 @@ footer p {margin: 0.3rem 0;}
         <li>💬 Tips semanales y asesor exclusivo</li>
       </ul>
       <div class="buttons">
-        <a href="#" class="btn primary">Pagar con Stripe</a>
-        <a href="https://wa.me/504XXXXXXXX?text=Hola!%20Quiero%20una%20prueba%20del%20curso%201:1" class="btn secondary">Solicitar prueba</a>
+        <a href="#" class="btn primary"><i class="fa-brands fa-stripe"></i> Pagar con Stripe</a>
+        <a href="https://wa.me/504XXXXXXXX?text=Hola!%20Quiero%20una%20prueba%20del%20curso%201:1" class="btn secondary"><i class="fa-brands fa-whatsapp"></i> Solicitar prueba</a>
       </div>
     </div>
 
@@ -651,8 +664,8 @@ footer p {margin: 0.3rem 0;}
         <li>💬 Tips semanales y asesor exclusivo</li>
       </ul>
       <div class="buttons">
-        <a href="#" class="btn primary">Pagar con PayPal</a>
-        <a href="https://wa.me/504XXXXXXXX?text=Hola!%20Quiero%20una%20prueba%20del%20curso%20grupal" class="btn secondary">Solicitar prueba</a>
+        <a href="#" class="btn primary"><i class="fa-brands fa-paypal"></i> Pagar con PayPal</a>
+        <a href="https://wa.me/504XXXXXXXX?text=Hola!%20Quiero%20una%20prueba%20del%20curso%20grupal" class="btn secondary"><i class="fa-brands fa-whatsapp"></i> Solicitar prueba</a>
       </div>
     </div>
 
@@ -667,14 +680,15 @@ footer p {margin: 0.3rem 0;}
         <li>💬 Tips y acompañamiento</li>
       </ul>
       <div class="buttons">
-        <a href="#" class="btn primary">Pagar con Bac</a>
-        <a href="https://wa.me/504XXXXXXXX?text=Hola!%20Quiero%20una%20prueba%20del%20curso%20grabado" class="btn secondary">Solicitar prueba</a>
+        <a href="#" class="btn primary"><i class="fa-solid fa-building-columns"></i> Pagar con Bac</a>
+        <a href="https://wa.me/504XXXXXXXX?text=Hola!%20Quiero%20una%20prueba%20del%20curso%20grabado" class="btn secondary"><i class="fa-brands fa-whatsapp"></i> Solicitar prueba</a>
       </div>
     </div>
   </div>
 
   <p class="duration">📅 Duración total del curso: <strong>1.5 años</strong></p>
 </section>
+
 
 
   <div class="cta" id="contacto">
