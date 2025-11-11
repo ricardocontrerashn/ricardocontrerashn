@@ -12,7 +12,7 @@
 * {margin: 0; padding: 0; box-sizing: border-box; font-family: 'Poppins', sans-serif;}
 body {background: #fdfdfd; color: #333; scroll-behavior: smooth;}
 
-/* 🔹 HEADER */
+/* HEADER */
 header {position: fixed; top: 0; width: 100%; background: rgba(255,255,255,0.95); box-shadow: 0 2px 8px rgba(0,0,0,0.1); z-index: 1000;}
 nav {display: flex; justify-content: space-between; align-items: center; padding: 1rem 2rem;}
 nav ul {list-style: none; display: flex; gap: 2rem;}
@@ -22,35 +22,35 @@ nav ul li a:hover {color: #1976D2;}
 .logo img {height: 40px; border-radius: 8px;}
 .logo h1 {font-size: 1.6rem; color: #0078ff; font-weight: 700;}
 
-/* 🔹 HERO */
+/* HERO */
 .hero {position: relative; height: 100vh; background: url('https://images.unsplash.com/photo-1523240795612-9a054b0db644?auto=format&fit=crop&w=1920&q=80') center/cover no-repeat; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; color: white; padding: 0 2rem; overflow: hidden;}
 .hero::before {content: ""; position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.55); z-index: 1;}
 .hero h2, .hero p, .hero a {position: relative; z-index: 2;}
 .hero h2 {font-size: 4rem; font-weight: 800; margin-bottom: 1rem; color: #FFD54F; text-shadow: 3px 3px 10px rgba(0,0,0,0.5);}
-.hero p {font-size: 1.4rem; max-width: 700px; margin-bottom: 2.5rem; color: white;}
+.hero p {font-size: 1.4rem; max-width: 700px; margin-bottom: 2.5rem;}
 .btn-primary {background: linear-gradient(90deg, #fff, #f0f8ff); color: #0078ff; padding: 1rem 2rem; border-radius: 50px; font-weight: 700; text-decoration: none; font-size: 1.2rem; transition: all 0.3s ease;}
 .btn-primary:hover {background: #0078ff; color: #fff; transform: scale(1.05);}
 
-/* 🔹 ABOUT */
+/* ABOUT */
 .about {text-align: center; padding: 60px 20px; background: #f9fafc;}
 .about h2 {font-size: 2.2rem; color: #0078ff; margin-bottom: 40px; font-weight: 700;}
-.about-card {display: flex; flex-direction: row; align-items: center; justify-content: center; gap: 40px; background: #fff; border-radius: 20px; box-shadow: 0 6px 25px rgba(0,0,0,0.08); max-width: 1000px; margin: 0 auto; padding: 40px;}
-.about-image img {width: 100%; max-width: 450px; border-radius: 16px; object-fit: cover; transition: transform 0.4s ease;}
+.about-card {display: flex; flex-direction: row; align-items: center; justify-content: center; gap: 40px; background: #fff; border-radius: 20px; box-shadow: 0 6px 25px rgba(0, 0, 0, 0.08); max-width: 1000px; margin: 0 auto; padding: 40px;}
+.about-image img {width: 100%; max-width: 450px; border-radius: 16px; transition: transform 0.4s ease;}
 .about-image img:hover {transform: scale(1.03);}
 .about-text {flex: 1; text-align: left;}
 .about-text p {font-size: 1.05rem; line-height: 1.7; color: #444; margin-bottom: 18px;}
 
-/* 🔹 PRECIOS */
+/* PRECIOS */
 .pricing {text-align: center; padding: 80px 20px; background: #f8fafc; color: #1e293b;}
 .pricing h2 {font-size: 2.2rem; margin-bottom: 10px; color: #0f172a;}
 .pricing .subtitle {color: #64748b; font-size: 1rem; margin-bottom: 40px;}
 .pricing-container {display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 20px; justify-content: center; max-width: 1200px; margin: 0 auto;}
+.badge {background: #2563eb; color: white; font-size: 0.8rem; font-weight: bold; text-transform: uppercase; padding: 5px 12px; border-radius: 20px; display: inline-block; margin-bottom: 8px; box-shadow: 0 4px 10px rgba(37,99,235,0.3);}
 .price {font-size: 1.9rem; font-weight: bold; color: #0f172a;}
 .old {text-decoration: line-through; color: #94a3b8; font-size: 1rem; margin-right: 6px;}
-.badge {background: #2563eb; color: white; font-size: 0.8rem; font-weight: bold; text-transform: uppercase; padding: 5px 12px; border-radius: 20px; display: inline-block; margin-bottom: 8px; box-shadow: 0 4px 10px rgba(37,99,235,0.3);}
 .duration {margin-top: 40px; font-size: 1rem; color: #475569;}
 
-/* === Cards base === */
+/* === Cards limpias y animadas === */
 .pricing-card {
   position: relative;
   border-radius: 20px;
@@ -68,7 +68,7 @@ nav ul li a:hover {color: #1976D2;}
   box-shadow: 0 15px 35px rgba(37, 99, 235, 0.18);
 }
 
-/* ✨ Luz giratoria alrededor del borde */
+/* 🌟 Luz giratoria solo en hover o tap */
 .pricing-card::before {
   content: "";
   position: absolute;
@@ -97,9 +97,9 @@ nav ul li a:hover {color: #1976D2;}
 .pricing-card.active::before {opacity: 1;}
 @keyframes spinLight {0% {transform: rotate(0deg);} 100% {transform: rotate(360deg);}}
 
-/* Responsivo */
-@media (max-width: 768px) {.pricing h2 {font-size: 1.8rem;} .pricing-card {max-width: 100%;}}
-@media (max-width: 480px) {.pricing {padding: 60px 15px;} .price {font-size: 1.5rem;} .btn {font-size: 0.9rem;} .btn i {font-size: 1rem;}}
+/* FOOTER */
+footer {background: #0078ff; color: white; text-align: center; padding: 2rem; margin-top: 5rem;}
+footer p {margin: 0.3rem 0;}
   </style>
 </head>
 
@@ -127,20 +127,7 @@ nav ul li a:hover {color: #1976D2;}
     <a href="#ingles" class="btn-primary">Explorar Cursos</a>
   </section>
 
-  <section id="nosotros" class="about">
-    <h2>Nosotros</h2>
-    <div class="about-card">
-      <div class="about-image">
-        <img src="https://github.com/ricardocontrerashn/myteachingworld-assets/blob/main/babies.png?raw=true" alt="Equipo docente MyTeachingWorld">
-      </div>
-      <div class="about-text">
-        <p>Somos un equipo apasionado por <strong>enseñar inglés online</strong> a niños, jóvenes y adultos.</p>
-        <p>Combinamos la <strong>experiencia educativa</strong> con <strong>tecnología innovadora</strong> para crear clases dinámicas, personalizadas y llenas de motivación.</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- 💵 PLANES Y PRECIOS -->
+  <!-- SECCIÓN DE PRECIOS -->
   <section id="precios" class="pricing">
     <h2>💵 Planes y Precios | Clases de Inglés</h2>
     <p class="subtitle">Elige la opción que mejor se adapte a ti</p>
@@ -186,20 +173,14 @@ nav ul li a:hover {color: #1976D2;}
     <p class="duration">📅 Duración total del curso: <strong>1.5 años</strong></p>
   </section>
 
-  <div class="cta" id="contacto">
-    <h3>Comienza tu aventura de aprendizaje hoy</h3>
-    <p>Inscríbete y forma parte de una comunidad global que aprende, crea e innova.</p>
-    <a href="https://wa.me/50433918660?text=Necesito%20más%20información" target="_blank">Contáctanos por WhatsApp</a>
-  </div>
-
   <footer>
     <p>© 2025 My Teaching World. Todos los derechos reservados.</p>
   </footer>
 
-  <!-- ⚙️ SCRIPT: activa el efecto en pantallas táctiles -->
+  <!-- Script para efecto táctil -->
   <script>
-    const pricingCards = document.querySelectorAll('.pricing-card');
-    pricingCards.forEach(card => {
+    const cards = document.querySelectorAll('.pricing-card');
+    cards.forEach(card => {
       card.addEventListener('touchstart', () => {
         card.classList.add('active');
         setTimeout(() => card.classList.remove('active'), 3000);
