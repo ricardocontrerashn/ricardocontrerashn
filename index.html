@@ -582,6 +582,33 @@ footer p {margin: 0.3rem 0;}
   }
 }
 
+  /* Estilo base del borde */
+.pricing-card {
+  position: relative;
+  border: 2px solid transparent;
+  background-clip: padding-box;
+  transition: all 0.3s ease;
+}
+
+/* Mantén el azul del destacado */
+.highlight {
+  border: 2px solid #2563eb;
+  background: linear-gradient(180deg, #ffffff 0%, #f0f7ff 100%);
+}
+
+/* Efecto hover para todas las tarjetas */
+.pricing-card:hover {
+  border: 2px solid #2563eb;
+  box-shadow: 0 15px 35px rgba(37, 99, 235, 0.15);
+  transform: translateY(-6px);
+  background: linear-gradient(180deg, #ffffff 0%, #f0f7ff 100%);
+}
+
+/* Animación más fluida */
+.pricing-card {
+  transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+}
+
     
 </style>
 
