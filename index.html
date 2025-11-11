@@ -120,7 +120,146 @@ nav ul li a:hover { color: #1976D2; }
   }
 }
 
+/* Precios */
 
+  .pricing {
+  text-align: center;
+  padding: 80px 20px;
+  background: #f8fafc;
+  color: #1e293b;
+}
+
+.pricing h2 {
+  font-size: 2.2rem;
+  margin-bottom: 10px;
+  color: #0f172a;
+}
+
+.pricing .subtitle {
+  color: #64748b;
+  font-size: 1rem;
+  margin-bottom: 40px;
+}
+
+.pricing-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
+  gap: 25px;
+  justify-items: center;
+}
+
+.pricing-card {
+  background: white;
+  border-radius: 20px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+  padding: 30px;
+  max-width: 340px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.pricing-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 12px 30px rgba(0,0,0,0.1);
+}
+
+.highlight {
+  border: 2px solid #2563eb;
+  background: linear-gradient(180deg, #ffffff 0%, #f0f7ff 100%);
+}
+
+.pricing-card h3 {
+  font-size: 1.4rem;
+  color: #1e3a8a;
+  margin-bottom: 10px;
+}
+
+.price {
+  font-size: 1.8rem;
+  font-weight: bold;
+  color: #0f172a;
+}
+
+.price span {
+  font-size: 1rem;
+  color: #64748b;
+}
+
+.pricing-card ul {
+  list-style: none;
+  text-align: left;
+  margin: 25px 0;
+  padding: 0;
+}
+
+.pricing-card ul li {
+  padding: 8px 0;
+  border-bottom: 1px solid #e2e8f0;
+  font-size: 0.95rem;
+}
+
+.buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+.btn {
+  text-decoration: none;
+  padding: 10px 15px;
+  border-radius: 10px;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+.btn.primary {
+  background: #2563eb;
+  color: white;
+}
+
+.btn.primary:hover {
+  background: #1e40af;
+}
+
+.btn.secondary {
+  background: #e2e8f0;
+  color: #1e293b;
+}
+
+.btn.secondary:hover {
+  background: #cbd5e1;
+}
+
+.duration {
+  margin-top: 40px;
+  font-size: 1rem;
+  color: #475569;
+}
+
+/* Responsivo */
+@media (max-width: 768px) {
+  .pricing h2 {
+    font-size: 1.8rem;
+  }
+  .pricing-card {
+    max-width: 100%;
+  }
+}
+
+@media (max-width: 480px) {
+  .pricing {
+    padding: 60px 15px;
+  }
+  .price {
+    font-size: 1.5rem;
+  }
+  .btn {
+    font-size: 0.9rem;
+  }
+}
+
+
+  
 /* 🔹 HERO */
 .hero {
   position: relative;
@@ -478,17 +617,65 @@ footer p {margin: 0.3rem 0;}
 </section>
 
 
-  <section id="precios">
-    <h2>Precios de nuestros cursos</h2>
-    <p>Integrando experiencia y tecnologia para el aprendizaje integral de nuevo idioma en el siglo XXI.</p>
-    <div class="courses">
-      <div class="card">
-        <img src="https://github.com/ricardocontrerashn/myteachingworld-assets/blob/0c502a9465c62e3fa64dad9cba1b0b07e579f73c/STEAM.png?raw=true?auto=format&fit=crop&w=800&q=80" alt="STEAM Projects">
-        <h3>Precios</h3>
-        <p>Aprendizaje basado en procesos neurolinguisticos</p>
+<section id="precios" class="pricing">
+  <h2>💵 Planes y Precios</h2>
+  <p class="subtitle">Elige la opción que mejor se adapte a ti</p>
+
+  <div class="pricing-container">
+    <!-- Plan 1: Clases 1:1 -->
+    <div class="pricing-card">
+      <h3>Clases 1:1</h3>
+      <p class="price">L. 3,000 <span>/ mes</span></p>
+      <ul>
+        <li>🕒 2 horas por semana (Miércoles y Jueves de 5:00 a 6:00 pm)</li>
+        <li>📘 Acceso total a la plataforma</li>
+        <li>🎧 Libro digital interactivo</li>
+        <li>📝 Asignaciones semanales</li>
+        <li>💬 Tips semanales y asesor exclusivo</li>
+      </ul>
+      <div class="buttons">
+        <a href="#" class="btn primary">Pagar con Stripe</a>
+        <a href="https://wa.me/504XXXXXXXX?text=Hola!%20Quiero%20una%20prueba%20del%20curso%201:1" class="btn secondary">Solicitar prueba</a>
       </div>
     </div>
-  </section>
+
+    <!-- Plan 2: Clases Grupales -->
+    <div class="pricing-card highlight">
+      <h3>Clases Grupales</h3>
+      <p class="price">L. 2,300 <span>/ mes</span></p>
+      <ul>
+        <li>👥 Lunes y Martes de 5:00 a 6:00 pm</li>
+        <li>📘 Acceso total a la plataforma</li>
+        <li>🎧 Libro digital interactivo</li>
+        <li>📝 Asignaciones semanales</li>
+        <li>💬 Tips semanales y asesor exclusivo</li>
+      </ul>
+      <div class="buttons">
+        <a href="#" class="btn primary">Pagar con PayPal</a>
+        <a href="https://wa.me/504XXXXXXXX?text=Hola!%20Quiero%20una%20prueba%20del%20curso%20grupal" class="btn secondary">Solicitar prueba</a>
+      </div>
+    </div>
+
+    <!-- Plan 3: Cursos Grabados -->
+    <div class="pricing-card">
+      <h3>Cursos Grabados</h3>
+      <p class="price">L. 1,500 <span>/ mes</span></p>
+      <ul>
+        <li>🎥 2 videos de 1 hora cada semana</li>
+        <li>📘 Acceso total a la plataforma</li>
+        <li>🎧 Libro digital interactivo</li>
+        <li>💬 Tips y acompañamiento</li>
+      </ul>
+      <div class="buttons">
+        <a href="#" class="btn primary">Pagar con Bac</a>
+        <a href="https://wa.me/504XXXXXXXX?text=Hola!%20Quiero%20una%20prueba%20del%20curso%20grabado" class="btn secondary">Solicitar prueba</a>
+      </div>
+    </div>
+  </div>
+
+  <p class="duration">📅 Duración total del curso: <strong>1.5 años</strong></p>
+</section>
+
 
   <div class="cta" id="contacto">
     <h3>Comienza tu aventura de aprendizaje hoy</h3>
