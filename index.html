@@ -8,717 +8,108 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
 
-<style>
-* {
-  margin: 0; padding: 0; box-sizing: border-box;
-  font-family: 'Poppins', sans-serif;
-}
-body {
-  background: #fdfdfd; color: #333; scroll-behavior: smooth;
-}
+  <style>
+* {margin: 0; padding: 0; box-sizing: border-box; font-family: 'Poppins', sans-serif;}
+body {background: #fdfdfd; color: #333; scroll-behavior: smooth;}
 
 /* 🔹 HEADER */
-header {
-  position: fixed; top: 0; width: 100%;
-  background: rgba(255,255,255,0.95);
-  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-  z-index: 1000;
-}
-nav {
-  display: flex; justify-content: space-between; align-items: center;
-  padding: 1rem 2rem;
-}
-nav h1 {
-  font-size: 1.2rem 
-  color: #0078ff; 
-  font-weight: 700;
-  letter-spacing: 0.5px;
-  white-space: nowrap; /* evita que se divida en dos líneas */
-}
- 
-nav ul {
-  list-style: none;
-  display: flex; gap: 2rem;
-}
-nav ul li a {
-  text-decoration: none; color: #333; font-weight: 500;
-  transition: color 0.3s;
-}
-nav ul li a:hover { color: #1976D2; }
+header {position: fixed; top: 0; width: 100%; background: rgba(255,255,255,0.95); box-shadow: 0 2px 8px rgba(0,0,0,0.1); z-index: 1000;}
+nav {display: flex; justify-content: space-between; align-items: center; padding: 1rem 2rem;}
+nav ul {list-style: none; display: flex; gap: 2rem;}
+nav ul li a {text-decoration: none; color: #333; font-weight: 500; transition: color 0.3s;}
+nav ul li a:hover {color: #1976D2;}
+.logo {display: flex; align-items: center; gap: 0.6rem;}
+.logo img {height: 40px; border-radius: 8px;}
+.logo h1 {font-size: 1.6rem; color: #0078ff; font-weight: 700;}
 
-
-  /* ===== SECCIÓN NOSOTROS ===== */
-.about {
-  text-align: center;
-  padding: 60px 20px;
-  background: #f9fafc;
-}
-
-.about h2 {
-  font-size: 2.2rem;
-  color: #0078ff;
-  margin-bottom: 40px;
-  font-weight: 700;
-  letter-spacing: 0.5px;
-}
-
-/* Contenedor tipo card */
-.about-card {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: center;
-  gap: 40px;
-  background: #fff;
-  border-radius: 20px;
-  box-shadow: 0 6px 25px rgba(0, 0, 0, 0.08);
-  max-width: 1000px;
-  margin: 0 auto;
-  padding: 40px;
-}
-
-/* Imagen del equipo */
-.about-image img {
-  width: 100%;
-  max-width: 450px;
-  border-radius: 16px;
-  object-fit: cover;
-  transition: transform 0.4s ease;
-}
-
-.about-image img:hover {
-  transform: scale(1.03);
-}
-
-/* Texto */
-.about-text {
-  flex: 1;
-  text-align: left;
-}
-
-.about-text p {
-  font-size: 1.05rem;
-  line-height: 1.7;
-  color: #444;
-  margin-bottom: 18px;
-}
-
-/* Responsividad */
-@media (max-width: 900px) {
-  .about-card {
-    flex-direction: column;
-    text-align: center;
-    padding: 30px 20px;
-  }
-
-  .about-image img {
-    max-width: 90%;
-  }
-
-  .about-text {
-    text-align: center;
-  }
-}
-
-/* Precios */
-
-.pricing {
-  text-align: center;
-  padding: 80px 20px;
-  background: #f8fafc;
-  color: #1e293b;
-}
-
-.pricing h2 {
-  font-size: 2.2rem;
-  margin-bottom: 10px;
-  color: #0f172a;
-}
-
-.pricing .subtitle {
-  color: #64748b;
-  font-size: 1rem;
-  margin-bottom: 40px;
-}
-
-.pricing-container {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-  gap: 20px;
-  justify-content: center;
-  max-width: 1200px; /* ajusta según te guste */
-  margin: 0 auto;
-}
-
-.pricing-card {
-  background: white;
-  border-radius: 20px;
-  box-shadow: 0 10px 25px rgba(0,0,0,0.08);
-  padding: 30px;
-  max-width: 380px;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.pricing-card:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 12px 30px rgba(0,0,0,0.1);
-}
-
-/*.highlight {
-  border: 2px solid #2563eb;
-  background: linear-gradient(180deg, #ffffff 0%, #f0f7ff 100%);
-}*/
-
-.pricing-card h3 {
-  font-size: 1.4rem;
-  color: #1e3a8a;
-  margin-bottom: 10px;
-}
-
-.price {
-  font-size: 1.8rem;
-  font-weight: bold;
-  color: #0f172a;
-}
-
-.price span {
-  font-size: 1rem;
-  color: #64748b;
-}
-
-.pricing-card ul {
-  list-style: none;
-  text-align: left;
-  margin: 25px 0;
-  padding: 0;
-}
-
-.pricing-card ul li {
-  padding: 8px 0;
-  border-bottom: 1px solid #e2e8f0;
-  font-size: 0.95rem;
-}
-
-.buttons {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-  margin-top: 20px;
-}
-
-.btn {
-  text-decoration: none;
-  padding: 12px 16px;
-  border-radius: 10px;
-  font-weight: 600;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: 8px;
-  transition: all 0.3s ease;
-  font-size: 0.95rem;
-}
-
-.btn i {
-  font-size: 1.1rem;
-}
-
-.btn.primary {
-  background: #2563eb;
-  color: white;
-}
-
-.btn.primary:hover {
-  background: #1e40af;
-}
-
-.btn.secondary {
-  background: #e2e8f0;
-  color: #1e293b;
-}
-
-.btn.secondary:hover {
-  background: #cbd5e1;
-}
-
-.duration {
-  margin-top: 40px;
-  font-size: 1rem;
-  color: #475569;
-}
-
-/* Responsivo */
-@media (max-width: 768px) {
-  .pricing h2 {
-    font-size: 1.8rem;
-  }
-  .pricing-card {
-    max-width: 100%;
-  }
-}
-
-@media (max-width: 480px) {
-  .pricing {
-    padding: 60px 15px;
-  }
-  .price {
-    font-size: 1.5rem;
-  }
-  .btn {
-    font-size: 0.9rem;
-  }
-  .btn i {
-    font-size: 1rem;
-  }
-}
-
-
-
-  
 /* 🔹 HERO */
-.hero {
-  position: relative;
-  height: 100vh;
-  background: url('https://images.unsplash.com/photo-1523240795612-9a054b0db644?auto=format&fit=crop&w=1920&q=80') center/cover no-repeat;
-  display: flex; flex-direction: column; justify-content: center; align-items: center;
-  text-align: center; color: white; padding: 0 2rem;
-  overflow: hidden;
-}
-.hero::before {
-  content: "";
-  position: absolute; top: 0; left: 0;
-  width: 100%; height: 100%;
-  background: rgba(0, 0, 0, 0.55);
-  z-index: 1;
-}
-.hero h2, .hero p, .hero a {
-  position: relative; z-index: 2;
-}
-.hero h2 {
-  font-size: 4rem; font-weight: 800;
-  margin-bottom: 1rem; color: #FFD54F;
-  text-shadow: 3px 3px 10px rgba(0,0,0,0.5);
-  animation: fadeIn 1.5s ease;
-}
-.hero p {
-  font-size: 1.4rem; max-width: 700px;
-  margin-bottom: 2.5rem;
-  color: white !important;
-  text-shadow: 2px 2px 6px rgba(0,0,0,0.25);
-  animation: fadeIn 2s ease;
-}
+.hero {position: relative; height: 100vh; background: url('https://images.unsplash.com/photo-1523240795612-9a054b0db644?auto=format&fit=crop&w=1920&q=80') center/cover no-repeat; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; color: white; padding: 0 2rem; overflow: hidden;}
+.hero::before {content: ""; position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.55); z-index: 1;}
+.hero h2, .hero p, .hero a {position: relative; z-index: 2;}
+.hero h2 {font-size: 4rem; font-weight: 800; margin-bottom: 1rem; color: #FFD54F; text-shadow: 3px 3px 10px rgba(0,0,0,0.5);}
+.hero p {font-size: 1.4rem; max-width: 700px; margin-bottom: 2.5rem; color: white;}
+.btn-primary {background: linear-gradient(90deg, #fff, #f0f8ff); color: #0078ff; padding: 1rem 2rem; border-radius: 50px; font-weight: 700; text-decoration: none; font-size: 1.2rem; transition: all 0.3s ease;}
+.btn-primary:hover {background: #0078ff; color: #fff; transform: scale(1.05);}
 
-/* 🔹 BOTÓN */
-.btn-primary {
-  background: linear-gradient(90deg, #fff, #f0f8ff);
-  color: #0078ff; padding: 1rem 2rem;
-  border-radius: 50px; font-weight: 700;
-  text-decoration: none; font-size: 1.2rem;
-  box-shadow: 0 4px 15px rgba(255,255,255,0.3);
-  transition: all 0.3s ease;
-}
-.btn-primary:hover {
-  background: #0078ff; color: #fff;
-  transform: scale(1.05);
-  box-shadow: 0 6px 20px rgba(0,0,0,0.3);
-}
+/* 🔹 ABOUT */
+.about {text-align: center; padding: 60px 20px; background: #f9fafc;}
+.about h2 {font-size: 2.2rem; color: #0078ff; margin-bottom: 40px; font-weight: 700;}
+.about-card {display: flex; flex-direction: row; align-items: center; justify-content: center; gap: 40px; background: #fff; border-radius: 20px; box-shadow: 0 6px 25px rgba(0,0,0,0.08); max-width: 1000px; margin: 0 auto; padding: 40px;}
+.about-image img {width: 100%; max-width: 450px; border-radius: 16px; object-fit: cover; transition: transform 0.4s ease;}
+.about-image img:hover {transform: scale(1.03);}
+.about-text {flex: 1; text-align: left;}
+.about-text p {font-size: 1.05rem; line-height: 1.7; color: #444; margin-bottom: 18px;}
 
-@keyframes fadeIn {
-  from {opacity: 0; transform: translateY(20px);}
-  to {opacity: 1; transform: translateY(0);}
-}
+/* 🔹 PRECIOS */
+.pricing {text-align: center; padding: 80px 20px; background: #f8fafc; color: #1e293b;}
+.pricing h2 {font-size: 2.2rem; margin-bottom: 10px; color: #0f172a;}
+.pricing .subtitle {color: #64748b; font-size: 1rem; margin-bottom: 40px;}
+.pricing-container {display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 20px; justify-content: center; max-width: 1200px; margin: 0 auto;}
+.price {font-size: 1.9rem; font-weight: bold; color: #0f172a;}
+.old {text-decoration: line-through; color: #94a3b8; font-size: 1rem; margin-right: 6px;}
+.badge {background: #2563eb; color: white; font-size: 0.8rem; font-weight: bold; text-transform: uppercase; padding: 5px 12px; border-radius: 20px; display: inline-block; margin-bottom: 8px; box-shadow: 0 4px 10px rgba(37,99,235,0.3);}
+.duration {margin-top: 40px; font-size: 1rem; color: #475569;}
 
-/* 🔹 SECCIONES */
-section {padding: 5rem 10%; text-align: center;}
-section h2 {font-size: 2.4rem; color: #0078ff; margin-bottom: 1rem;}
-section p {font-size: 1rem; color: #555; margin-bottom: 2rem;}
-.courses {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 2rem;
-}
-.card {
-  background: #fff; border-radius: 20px;
-  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-  padding: 2rem;
-  transition: transform 0.3s, box-shadow 0.3s;
-}
-.card:hover {
-  transform: translateY(-10px);
-  box-shadow: 0 6px 20px rgba(0,0,0,0.15);
-}
-.card img {
-  width: 100%; border-radius: 15px; margin-bottom: 1rem;
-}
-.card h3 {color: #333; margin-bottom: 0.5rem;}
-
-/* 🔹 CTA */
-.cta {
-  background: linear-gradient(135deg, #0078ff, #00c8ff);
-  color: white; padding: 4rem 2rem;
-  border-radius: 20px; max-width: 900px;
-  margin: 3rem auto; text-align: center;
-}
-.cta h3 {font-size: 2rem; margin-bottom: 1rem;}
-.cta a {
-  background: white; color: #0078ff;
-  padding: 0.8rem 1.6rem; border-radius: 30px;
-  text-decoration: none; font-weight: 600;
-  transition: all 0.3s;
-}
-.cta a:hover {background: #e0f3ff; transform: scale(1.05);}
-
-/* 🔹 FOOTER */
-footer {
-  background: #0078ff; color: white;
-  text-align: center; padding: 2rem; margin-top: 5rem;
-}
-footer p {margin: 0.3rem 0;}
-
-  /* --- MENÚ RESPONSIVO Y HAMBURGUESA ANIMADA --- */
-.menu-toggle {
-  display: none;
-  flex-direction: column;
-  justify-content: center; /* centra verticalmente las barras */
-  height: 25px; /* ajusta al tamaño total de las barras y márgenes */
-  cursor: pointer;
-}
-
-.menu-toggle span {
-  width: 25px;
-  height: 3px;
-  background: #0078ff;
-  margin: 3px 0;
-  transition: all 0.4s ease;
-  display: block;
-}
-
-/* Transformación hamburguesa -> X */
-.menu-toggle.active span:nth-child(1) {
-  transform: rotate(45deg) translate(5px, 8px);
-  transform-origin: center;
-}
-.menu-toggle.active span:nth-child(2) {
-  opacity: 0;
-}
-.menu-toggle.active span:nth-child(3) {
-  transform: rotate(-45deg) translate(5px, -8px);
-  transform-origin: center;
-}
-
-/* Media query para móviles */
-@media (max-width: 768px) {
-  nav ul {
-    position: absolute;
-    top: 70px;
-    left: 0;
-    background: white;
-    width: 100%;
-    flex-direction: column;
-    align-items: center;
-    gap: 1.5rem;
-    padding: 1.5rem 0;
-    display: none;  /* oculta por defecto */
-    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-    z-index: 999;
-  }
-  nav ul.show { display: flex; } /* se activa al hacer clic */
-  .menu-toggle { display: flex; } /* muestra hamburguesa */
-
-  /* Ajustes de texto en móvil */
-  .hero h2 {
-    font-size: 2.2rem;
-  }
-  .hero p {
-    font-size: 1rem;
-  }
-}
-
-  /* --- LOGO EN EL ENCABEZADO --- */
-.logo {
-  display: flex;
-  align-items: center;
-  gap: 0.6rem;
-}
-
-.logo img {
-  height: 40px;  /* ajusta el tamaño de tu logo */
-  width: auto;
-  border-radius: 8px; /* opcional, redondea un poco las esquinas */
-}
-
-  @media (max-width: 768px) {
-  .logo-text {
-    font-size: 1rem; /* ajusta si quieres más pequeño, por ejemplo 1rem */
-    white-space: nowrap; /* evita que se parta en dos líneas */
-  }
-}
-
-/* --- Ajustes para el logo y título en el header --- */
-.logo {
-  display: flex;
-  align-items: center;
-  gap: 0.6rem;
-}
-
-/* tamaño y alineación del texto del logo en desktop */
-.logo h1 {
-  font-size: 2rem;   /* un poco más pequeño que nav h1 original */
-  margin: 0;
-  font-weight: 700;
-  color: #0078ff;
-  white-space: nowrap; /* evita quiebres por defecto */
-}
-
-/* --- Ajustes específicos para móviles (pantallas pequeñas) --- */
-@media (max-width: 768px) {
-  /* Reduce aún más el texto del logo en móvil para asegurar que no salte */
-  .logo h1 {
-    font-size: 1.1rem;   /* prueba con 0.95rem — cámbialo a 0.9rem si aún se parte */
-    line-height: 1.3;
-    white-space: nowrap;  /* fuerza que se mantenga en una sola línea */
-    overflow: hidden;
-    text-overflow: ellipsis; /* si no cabe, muestra ... pero no corta en dos líneas */
-    max-width: calc(100vw - 120px); /* evita que ocupe todo el ancho (deja espacio para menú) */
-  }
-
-  /* Opcional: reduce tamaño del logo (imagen) en móviles */
-  .logo img {
-    height: 34px; /* ajusta si quieres más pequeño */
-  }
-
-  /* Asegura que el contenedor nav no obligue a saltos */
-  nav {
-    padding: 0.7rem 1rem;
-  }
-}
-
-/* ------------------------- */
-/* MEDIA QUERIES UNIFICADAS  */
-/* ------------------------- */
-@media (max-width: 820px) {
-  /* 🔹 NAV - menú responsive */
-  nav ul {
-    position: absolute;
-    top: 70px;
-    left: 0;
-    background: white;
-    width: 100%;
-    flex-direction: column;
-    align-items: center;
-    gap: 1.5rem;
-    padding: 1.5rem 0;
-    display: none; /* oculta por defecto */
-    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-    z-index: 999;
-  }
-  nav ul.show { display: flex; } /* se activa al hacer clic */
-  .menu-toggle { display: flex; } /* muestra hamburguesa */
-
-  /* 🔹 Ajustes del hero */
-  .hero h2 { font-size: 2.2rem; }
-  .hero p { font-size: 1rem; }
-
-  /* 🔹 Ajustes logo y título */
-  .logo h1 {
-    font-size: 1.1rem; /* ajusta si quieres un poco más grande o más pequeño */
-    line-height: 1.3;
-    white-space: nowrap;  /* evita que se parta en dos líneas */
-    overflow: hidden;
-    text-overflow: ellipsis;
-    max-width: calc(100vw - 120px); /* espacio para menú */
-  }
-  .logo img { height: 34px; } /* tamaño del logo más pequeño en tablet/móvil */
-
-  /* 🔹 Padding nav más compacto */
-  nav { padding: 0.7rem 1rem; }
-}
-
-  /* Precio anterior tachado */
-.old {
-  text-decoration: line-through;
-  color: #94a3b8;
-  font-size: 1rem;
-  margin-right: 6px;
-}
-
-/* Etiqueta de “Más popular” */
-.badge {
-  background: #2563eb;
-  color: white;
-  font-size: 0.8rem;
-  font-weight: bold;
-  text-transform: uppercase;
-  padding: 5px 12px;
-  border-radius: 20px;
-  display: inline-block;
-  margin-bottom: 8px;
-  box-shadow: 0 4px 10px rgba(37,99,235,0.3);
-}
-
-/* Ajuste del precio */
-.price {
-  font-size: 1.9rem;
-  font-weight: bold;
-  color: #0f172a;
-}
-
-.price span {
-  font-size: 1rem;
-  color: #64748b;
-}
-
-/* Hover elegante */
-.pricing-card:hover {
-  transform: scale(1.02);
-  box-shadow: 0 15px 35px rgba(0,0,0,0.12);
-  transition: all 0.3s ease;
-}
-
-/* Mantén tus cards anchas solo en desktop */
-@media (min-width: 1024px) {
-  .pricing-card {
-    max-width: 420px;
-  }
-}
-
-
-/*NUEVO ULTIMO STYLE*/
-
-/* ======== EFECTO DE BORDE AZUL EN TODAS LAS TARJETAS ======== */
-
+/* === Cards base === */
 .pricing-card {
   position: relative;
-  border: 2px solid transparent;
   border-radius: 20px;
-  background-clip: padding-box;
-  transition: all 0.3s ease;
-  background: white;
+  padding: 30px;
+  background: #fff;
   box-shadow: 0 10px 25px rgba(0,0,0,0.08);
-  padding: 30px;
-  max-width: 380px;
-}
-
-/* El card destacado conserva su borde azul */
-/*.highlight {
-  border: 2px solid #2563eb;
-  background: linear-gradient(180deg, #ffffff 0%, #f0f7ff 100%);
-}*/
-
-/* 👇 Efecto hover: los 3 muestran borde azul y fondo claro */
-.pricing-card:hover {
-  border: 2px solid #2563eb;
-  background: linear-gradient(180deg, #ffffff 0%, #f0f7ff 100%);
-  box-shadow: 0 15px 35px rgba(37, 99, 235, 0.18);
-  transform: translateY(-6px);
-}
-
-/* Transiciones suaves */
-.pricing-card {
-  transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease, background 0.25s ease;
-}
-
-/* ======== OPCIONAL: efecto de resplandor leve al hacer hover ======== */
-.pricing-card:hover::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  border-radius: 20px;
-  box-shadow: 0 0 20px rgba(37, 99, 235, 0.25);
-  pointer-events: none;
-}
-
-  
-  
-/* Mantén las proporciones responsivas */
-@media (min-width: 1024px) {
-  .pricing-card {
-    max-width: 420px;
-  }
-}
-
- /* ====== BORDE AZUL CON LUZ EN MOVIMIENTO SOLO EN HOVER ====== */
-
-.pricing-card {
-  position: relative;
-  border-radius: 20px;
-  padding: 30px;
-  background: white;
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
-  max-width: 380px;
   overflow: hidden;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border: 2px solid transparent;
+}
+.pricing-card:hover,
+.pricing-card.active {
+  border-color: #2563eb;
+  transform: translateY(-6px);
+  box-shadow: 0 15px 35px rgba(37, 99, 235, 0.18);
 }
 
-/* Borde invisible por defecto */
+/* ✨ Luz giratoria alrededor del borde */
 .pricing-card::before {
   content: "";
   position: absolute;
-  inset: 0;
-  border-radius: 20px;
-  border: 2px solid transparent;
-  background: linear-gradient(
-      90deg,
-      transparent,
-      rgba(37, 99, 235, 0.9),
-      transparent
-    )
-    border-box;
-  mask: linear-gradient(#fff 0 0) padding-box, linear-gradient(#fff 0 0);
-  mask-composite: exclude;
-  -webkit-mask-composite: destination-out;
-  opacity: 0;
+  inset: -2px;
+  border-radius: 22px;
+  background: conic-gradient(
+    from 0deg,
+    transparent 0deg,
+    #3b82f6 60deg,
+    transparent 120deg,
+    #3b82f6 180deg,
+    transparent 240deg,
+    #60a5fa 300deg,
+    transparent 360deg
+  );
   z-index: 2;
+  opacity: 0;
   pointer-events: none;
+  transition: opacity 0.3s ease;
+  animation: spinLight 3s linear infinite;
+  mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  mask-composite: exclude;
+  -webkit-mask-composite: xor;
 }
+.pricing-card:hover::before,
+.pricing-card.active::before {opacity: 1;}
+@keyframes spinLight {0% {transform: rotate(0deg);} 100% {transform: rotate(360deg);}}
 
-/* Animación solo al hacer hover */
-.pricing-card:hover::before {
-  opacity: 1;
-  animation: moveLight 1.5s linear infinite;
-}
-
-/* Efecto de movimiento de la luz (recorre el borde) */
-@keyframes moveLight {
-  0% {
-    background-position: 0% 50%;
-  }
-  100% {
-    background-position: 200% 50%;
-  }
-}
-
-/* Hover: sin llenar fondo, solo efecto de borde */
-.pricing-card:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 15px 35px rgba(37, 99, 235, 0.18);
-}
-
-/* En pantallas grandes, mantiene ancho amplio */
-@media (min-width: 1024px) {
-  .pricing-card {
-    max-width: 420px;
-  }
-}
-</style>
-
-
+/* Responsivo */
+@media (max-width: 768px) {.pricing h2 {font-size: 1.8rem;} .pricing-card {max-width: 100%;}}
+@media (max-width: 480px) {.pricing {padding: 60px 15px;} .price {font-size: 1.5rem;} .btn {font-size: 0.9rem;} .btn i {font-size: 1rem;}}
+  </style>
 </head>
-<body>
 
+<body>
   <header>
     <nav>
-      
       <div class="logo">
-  <img src="https://github.com/ricardocontrerashn/myteachingworld-assets/blob/main/Logo.png?raw=true" alt="Logo My Teaching World">
-  <h1>My Teaching World</h1>
-</div>
-      
-        <div class="menu-toggle" id="menu-toggle">
-          <span></span>
-          <span></span>
-          <span></span>
-        </div>
+        <img src="https://github.com/ricardocontrerashn/myteachingworld-assets/blob/main/Logo.png?raw=true" alt="Logo My Teaching World">
+        <h1>My Teaching World</h1>
+      </div>
       <ul>
         <li><a href="#inicio">Inicio</a></li>
         <li><a href="#ingles">Inglés</a></li>
@@ -736,165 +127,84 @@ footer p {margin: 0.3rem 0;}
     <a href="#ingles" class="btn-primary">Explorar Cursos</a>
   </section>
 
-  <section id="ingles">
-    <h2>Curso de Inglés Online</h2>
-    <p>Aprende inglés con clases en vivo, profesores certificados y una metodología práctica para hablar con confianza.</p>
-    <div class="courses">
-      <div class="card">
-        <img src="https://github.com/ricardocontrerashn/myteachingworld-assets/blob/main/Adultos%20Online.png?raw=true" alt="Inglés para Adultos">
-        <h3>Inglés para Adultos</h3>
-        <p>Empieza desde cero con clases interactivas y actividades divertidas.</p>
+  <section id="nosotros" class="about">
+    <h2>Nosotros</h2>
+    <div class="about-card">
+      <div class="about-image">
+        <img src="https://github.com/ricardocontrerashn/myteachingworld-assets/blob/main/babies.png?raw=true" alt="Equipo docente MyTeachingWorld">
       </div>
-      <div class="card">
-        <img src="https://github.com/ricardocontrerashn/myteachingworld-assets/blob/main/Ninos.png?raw=true" alt="Inglés para Niños">
-        <h3>Inglés para Niños</h3>
-        <p>Desarrolla fluidez con clases de conversación y práctica real.</p>
+      <div class="about-text">
+        <p>Somos un equipo apasionado por <strong>enseñar inglés online</strong> a niños, jóvenes y adultos.</p>
+        <p>Combinamos la <strong>experiencia educativa</strong> con <strong>tecnología innovadora</strong> para crear clases dinámicas, personalizadas y llenas de motivación.</p>
       </div>
     </div>
   </section>
 
-    <section id="idiomas">
-    <h2>Idiomas</h2>
-    <p>Explora el mundo aprendiendo nuevos idiomas con profesores nativos.</p>
-    <div class="courses">
-      <div class="card">
-        <img src="https://github.com/ricardocontrerashn/myteachingworld-assets/blob/main/Frances.jpg?raw=true" alt="Francés">
-        <h3>Francés</h3>
-        <p>Descubre la belleza del idioma del amor con lecciones inmersivas.</p>
+  <!-- 💵 PLANES Y PRECIOS -->
+  <section id="precios" class="pricing">
+    <h2>💵 Planes y Precios | Clases de Inglés</h2>
+    <p class="subtitle">Elige la opción que mejor se adapte a ti</p>
+
+    <div class="pricing-container">
+      <div class="pricing-card">
+        <h3>Clases 1:1</h3>
+        <p class="price"><span class="old">L. 3,200</span> L. 2,999 <span>/ mes</span></p>
+        <ul>
+          <li>🕒 Miércoles y Jueves de 5:00 a 6:00 pm</li>
+          <li>📘 Acceso total a la plataforma</li>
+          <li>🎧 Libro digital interactivo</li>
+          <li>📝 Asignaciones semanales</li>
+          <li>💬 Tips semanales y asesor exclusivo</li>
+        </ul>
       </div>
-      <div class="card">
-        <img src="https://github.com/ricardocontrerashn/myteachingworld-assets/blob/main/Italiano.jpg?raw=true" alt="Italiano">
-        <h3>Italiano</h3>
-        <p>Aprende italiano con clases dinámicas centradas en la cultura.</p>
+
+      <div class="pricing-card">
+        <div class="badge">Más popular</div>
+        <h3>Clases Grupales</h3>
+        <p class="price"><span class="old">L. 2,500</span> L. 2,299 <span>/ mes</span></p>
+        <ul>
+          <li>👥 Lunes y Martes de 5:00 a 6:00 pm</li>
+          <li>📘 Acceso total a la plataforma</li>
+          <li>🎧 Libro digital interactivo</li>
+          <li>📝 Asignaciones semanales</li>
+          <li>💬 Tips semanales y asesor exclusivo</li>
+        </ul>
       </div>
-      <div class="card">
-        <img src="https://github.com/ricardocontrerashn/myteachingworld-assets/blob/main/Aleman.jpg?raw=true" alt="Alemán">
-        <h3>Alemán</h3>
-        <p>Domina el idioma de la ingeniería y la ciencia paso a paso.</p>
+
+      <div class="pricing-card">
+        <h3>Cursos Grabados</h3>
+        <p class="price"><span class="old">L. 1,600</span> L. 1,499 <span>/ mes</span></p>
+        <ul>
+          <li>🎥 2 videos de 1 hora cada semana</li>
+          <li>📘 Acceso total a la plataforma</li>
+          <li>🎧 Libro digital interactivo</li>
+          <li>💬 Tips y acompañamiento</li>
+        </ul>
       </div>
     </div>
+
+    <p class="duration">📅 Duración total del curso: <strong>1.5 años</strong></p>
   </section>
-
-<section id="nosotros" class="about">
-  <h2>Nosotros</h2>
-
-  <div class="about-card">
-    <div class="about-image">
-      <img src="https://github.com/ricardocontrerashn/myteachingworld-assets/blob/main/babies.png?raw=true" alt="Equipo docente MyTeachingWorld">
-    </div>
-
-    <div class="about-text">
-      <p>
-        Somos un equipo apasionado por <strong>enseñar inglés online</strong> a niños, jóvenes y adultos. 
-        Combinamos la <strong>experiencia educativa</strong> con <strong>tecnología innovadora</strong> 
-        para crear clases dinámicas, personalizadas y llenas de motivación.
-      </p>
-      <p>
-        Nuestra misión es ayudarte a comunicarte con confianza, 
-        guiándote paso a paso con una metodología <strong>moderna, práctica e inspiradora</strong>.
-      </p>
-    </div>
-  </div>
-</section>
-
-
-<section id="precios" class="pricing">
-  <h2>💵 Planes y Precios | Clases de Inglés</h2>
-  <p class="subtitle">Elige la opción que mejor se adapte a ti</p>
-
-  <div class="pricing-container">
-
-    <!-- Plan 1: Clases 1:1 -->
-    <div class="pricing-card">
-      <h3>Clases 1:1</h3>
-      <p class="price">
-        <span class="old">L. 3,200</span> L. 2,999 <span>/ mes</span>
-      </p>
-      <ul>
-        <li>🕒 Miércoles y Jueves de 5:00 a 6:00 pm</li>
-        <li>📘 Acceso total a la plataforma</li>
-        <li>🎧 Libro digital interactivo</li>
-        <li>📝 Asignaciones semanales</li>
-        <li>💬 Tips semanales y asesor exclusivo</li>
-      </ul>
-      <div class="buttons">
-        <a href="#" class="btn primary"><i class="fa-brands fa-stripe"></i> Pagar con Stripe</a>
-        <a href="https://wa.me/50433918660?text=Hola!%20Quiero%20una%20prueba%20del%20curso%201:1" class="btn secondary"><i class="fa-brands fa-whatsapp"></i> Solicitar prueba</a>
-      </div>
-    </div>
-
-    <!-- Plan 2: Clases Grupales -->
-    <div class="pricing-card highlight">
-      <div class="badge">Más popular</div>
-      <h3>Clases Grupales</h3>
-      <p class="price">
-        <span class="old">L. 2,500</span> L. 2,299 <span>/ mes</span>
-      </p>
-      <ul>
-        <li>👥 Lunes y Martes de 5:00 a 6:00 pm</li>
-        <li>📘 Acceso total a la plataforma</li>
-        <li>🎧 Libro digital interactivo</li>
-        <li>📝 Asignaciones semanales</li>
-        <li>💬 Tips semanales y asesor exclusivo</li>
-      </ul>
-      <div class="buttons">
-        <a href="#" class="btn primary"><i class="fa-brands fa-paypal"></i> Pagar con PayPal</a>
-        <a href="https://wa.me/50433918660?text=Hola!%20Quiero%20una%20prueba%20del%20curso%20grupal" class="btn secondary"><i class="fa-brands fa-whatsapp"></i> Solicitar prueba</a>
-      </div>
-    </div>
-
-    <!-- Plan 3: Cursos Grabados -->
-    <div class="pricing-card">
-      <h3>Cursos Grabados</h3>
-      <p class="price">
-        <span class="old">L. 1,600</span> L. 1,499 <span>/ mes</span>
-      </p>
-      <ul>
-        <li>🎥 2 videos de 1 hora cada semana</li>
-        <li>📘 Acceso total a la plataforma</li>
-        <li>🎧 Libro digital interactivo</li>
-        <li>💬 Tips y acompañamiento</li>
-      </ul>
-      <div class="buttons">
-        <a href="#" class="btn primary"><i class="fa-solid fa-building-columns"></i> Pagar con Bac</a>
-        <a href="https://wa.me/50433918660?text=Hola!%20Quiero%20una%20prueba%20del%20curso%20grabado" class="btn secondary"><i class="fa-brands fa-whatsapp"></i> Solicitar prueba</a>
-      </div>
-    </div>
-
-  </div>
-
-  <p class="duration">📅 Duración total del curso: <strong>1.5 años</strong></p>
-</section>
-
-
 
   <div class="cta" id="contacto">
     <h3>Comienza tu aventura de aprendizaje hoy</h3>
     <p>Inscríbete y forma parte de una comunidad global que aprende, crea e innova.</p>
-<br>
-<br>
-    <a href="https://wa.me/50433918660?text=Necesito%20más%20información" target="_blank">
-  Contáctanos por WhatsApp
-</a>
+    <a href="https://wa.me/50433918660?text=Necesito%20más%20información" target="_blank">Contáctanos por WhatsApp</a>
   </div>
 
   <footer>
     <p>© 2025 My Teaching World. Todos los derechos reservados.</p>
-    <p><a href="#inicio" style="color: white; text-decoration: underline;">Volver arriba</a></p>
   </footer>
 
-
+  <!-- ⚙️ SCRIPT: activa el efecto en pantallas táctiles -->
   <script>
-  const toggle = document.getElementById('menu-toggle');
-  const navLinks = document.querySelector('nav ul');
-  toggle.addEventListener('click', () => {
-    navLinks.classList.toggle('show');   // muestra/oculta menú
-    toggle.classList.toggle('active');   // transforma en X
-  });
-</script>
-
-
-  
+    const pricingCards = document.querySelectorAll('.pricing-card');
+    pricingCards.forEach(card => {
+      card.addEventListener('touchstart', () => {
+        card.classList.add('active');
+        setTimeout(() => card.classList.remove('active'), 3000);
+      });
+    });
+  </script>
 </body>
 </html>
-
