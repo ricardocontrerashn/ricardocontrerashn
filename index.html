@@ -268,5 +268,11 @@ footer {background:#0078ff; color:white; text-align:center; padding:2rem; margin
   function closeHotmartModal(){const modal=document.getElementById("hotmartModal"),iframe=document.getElementById("hotmartFrame");iframe.src="";modal.style.display="none";}
   window.onclick=function(e){const modal=document.getElementById("hotmartModal");if(e.target===modal)closeHotmartModal();}
   </script>
+
+<script>
+const cards=document.querySelectorAll('.pricing-card');
+cards.forEach(c=>c.addEventListener('click',()=>{cards.forEach(x=>x.classList.remove('active'));c.classList.add('active');}));
+</script>
+  
 </body>
 </html>
