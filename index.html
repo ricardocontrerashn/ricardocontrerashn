@@ -1,199 +1,458 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>My Teaching World | Aprende Sin Fronteras</title>
   <link rel="icon" type="image/png" href="https://github.com/ricardocontrerashn/myteachingworld-assets/blob/main/android-chrome-512x512.png?raw=true">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
 
   <style>
-*{margin:0;padding:0;box-sizing:border-box;font-family:'Poppins',sans-serif;}
-body{background:#fdfdfd;color:#333;scroll-behavior:smooth;overflow-x:hidden;}
-.fade-in{opacity:0;transform:translateY(30px);transition:opacity 0.8s ease,transform 0.8s ease;}
-.fade-in.visible{opacity:1;transform:translateY(0);}
+/* -------------------------
+   RESET & TIPOGRAFÍA
+   ------------------------- */
+*{box-sizing:border-box;margin:0;padding:0}
+html{font-family:'Poppins',system-ui,-apple-system,Segoe UI,Roboto,"Helvetica Neue",Arial; -webkit-font-smoothing:antialiased}
+body{background:#fdfdfd;color:#111;line-height:1.45;overflow-x:hidden}
 
-/* ===== HEADER ===== */
-header{position:fixed;top:0;width:100%;background:rgba(255,255,255,0.95);box-shadow:0 2px 8px rgba(0,0,0,0.1);z-index:1000;}
-nav{display:flex;justify-content:space-between;align-items:center;padding:1rem 2rem;}
-.logo{display:flex;align-items:center;gap:0.6rem;}
-.logo img{height:40px;border-radius:8px;}
-.logo h1{font-size:1.5rem;font-weight:700;color:#0078ff;white-space:nowrap;}
-nav ul{list-style:none;display:flex;gap:2rem;}
-nav ul li a{text-decoration:none;color:#333;font-weight:500;transition:color 0.3s;}
-nav ul li a:hover{color:#1976D2;}
-.menu-toggle{display:none;flex-direction:column;cursor:pointer;}
-.menu-toggle span{width:25px;height:3px;background:#0078ff;margin:3px 0;transition:all 0.4s ease;}
-.menu-toggle.active span:nth-child(1){transform:rotate(45deg) translate(5px,8px);}
-.menu-toggle.active span:nth-child(2){opacity:0;}
-.menu-toggle.active span:nth-child(3){transform:rotate(-45deg) translate(5px,-8px);}
-@media(max-width:768px){
-  .menu-toggle{display:flex;}
-  nav ul{position:absolute;top:70px;left:0;background:white;width:100%;flex-direction:column;align-items:center;gap:1.5rem;padding:1.5rem 0;display:none;box-shadow:0 4px 12px rgba(0,0,0,0.1);}
-  nav ul.show{display:flex;}
-  .logo img{height:36px;}
-  .logo h1{font-size:1.1rem;}
-  nav{padding:0.7rem 1rem;}
+/* Responsive base sizes */
+:root{
+  --fs-h1:3.5rem;
+  --fs-h2:2.2rem;
+  --fs-base:1rem;
+  --primary:#2563eb;
+  --primary-dark:#1e40af;
+  --muted:#64748b;
+  --card-shadow: 0 10px 25px rgba(0,0,0,0.08);
 }
 
-/* ===== HERO ===== */
-.hero{position:relative;height:100vh;background:url('https://images.unsplash.com/photo-1523240795612-9a054b0db644?auto=format&fit=crop&w=1920&q=80') center/cover no-repeat;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;color:white;}
-.hero::before{content:"";position:absolute;inset:0;background:rgba(0,0,0,0.55);z-index:1;}
-.hero h2,.hero p,.hero a{position:relative;z-index:2;}
-.hero h2{font-size:3.5rem;font-weight:800;margin-bottom:1rem;color:#FFD54F;text-shadow:3px 3px 10px rgba(0,0,0,0.5);animation:slideDown 1.5s ease;}
-.hero p{font-size:1.3rem;max-width:700px;margin-bottom:2.5rem;color:white;text-shadow:2px 2px 6px rgba(0,0,0,0.25);}
-@keyframes slideDown{from{opacity:0;transform:translateY(-40px);}to{opacity:1;transform:translateY(0);}}
-.btn-primary{background:linear-gradient(90deg,#fff,#f0f8ff);color:#0078ff;padding:1rem 2rem;border-radius:50px;font-weight:700;text-decoration:none;font-size:1.2rem;box-shadow:0 4px 15px rgba(255,255,255,0.3);transition:all 0.3s;}
-.btn-primary:hover{background:#0078ff;color:white;transform:scale(1.05);}
+/* adjust font sizes for smaller devices */
+@media(max-width:1024px){
+  :root{--fs-h1:2.6rem;--fs-h2:2rem;--fs-base:0.97rem}
+}
+@media(max-width:480px){
+  :root{--fs-h1:2rem;--fs-h2:1.6rem;--fs-base:0.95rem}
+}
 
-/* ===== SECCIONES ===== */
-section{padding:5rem 10%;text-align:center;}
-section h2{font-size:2.2rem;color:#0078ff;margin-bottom:1rem;}
-section p{font-size:1rem;color:#555;margin-bottom:2rem;}
-.courses{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:2rem;}
-.card{background:#fff;border-radius:20px;box-shadow:0 4px 15px rgba(0,0,0,0.1);padding:2rem;transition:transform 0.3s,box-shadow 0.3s;}
-.card:hover{transform:translateY(-10px);box-shadow:0 6px 20px rgba(0,0,0,0.15);}
-.card img{width:100%;border-radius:15px;margin-bottom:1rem;}
-.flag-btn{margin-top:1rem;display:inline-flex;align-items:center;gap:8px;background:#2563eb;color:white;padding:10px 16px;border-radius:8px;font-weight:600;text-decoration:none;transition:all 0.3s;}
-.flag-btn:hover{background:#1e40af;transform:translateY(-3px);}
-.flag-btn img{width:24px;height:16px;border-radius:3px;}
+/* -------------------------
+   HEADER / NAV
+   ------------------------- */
+header{position:fixed;top:0;left:0;right:0;background:rgba(255,255,255,0.96);box-shadow:0 2px 8px rgba(0,0,0,0.06);z-index:1200}
+nav{max-width:1200px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;padding:0.9rem 1.25rem;gap:1rem}
+.logo{display:flex;align-items:center;gap:.6rem}
+.logo img{height:44px;width:auto;border-radius:8px;display:block}
+.logo h1{font-size:1.25rem;color:var(--primary);font-weight:700;white-space:nowrap}
+nav ul{display:flex;gap:1.5rem;list-style:none;align-items:center}
+nav a{color:#111;text-decoration:none;font-weight:600;font-size:0.95rem;transition:color .18s}
+nav a:hover{color:var(--primary)}
+.menu-toggle{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:6px}
+.menu-toggle span{width:26px;height:3px;background:var(--primary);border-radius:3px;display:block;transition:all .35s}
 
-/* ===== NOSOTROS ===== */
-.about{background:#f9fafc;padding:60px 20px;}
-.about-card{display:flex;align-items:center;justify-content:center;gap:40px;background:#fff;border-radius:20px;box-shadow:0 6px 25px rgba(0,0,0,0.08);max-width:1000px;margin:0 auto;padding:40px;}
-.about-image img{width:100%;max-width:450px;border-radius:16px;transition:transform 0.4s;}
-.about-image img:hover{transform:scale(1.03);}
-.about-text p{font-size:1.05rem;line-height:1.7;color:#444;margin-bottom:18px;}
-@media(max-width:900px){.about-card{flex-direction:column;text-align:center;}}
+/* show hamburger on tablet & smaller */
+@media(max-width:1024px){
+  .menu-toggle{display:flex}
+  nav ul{position:fixed;top:70px;left:0;right:0;background:#fff;flex-direction:column;align-items:center;gap:1rem;padding:1.25rem 1rem;display:none;box-shadow:0 8px 30px rgba(0,0,0,0.06);z-index:1100}
+  nav ul.show{display:flex}
+  .logo img{height:38px}
+  .logo h1{font-size:1.05rem}
+}
 
-/* ===== PRECIOS ===== */
-.pricing{background:#f8fafc;padding:80px 20px;text-align:center;}
-.pricing-container{display:grid;grid-template-columns:repeat(auto-fit,minmax(350px,1fr));gap:20px;justify-content:center;max-width:1200px;margin:0 auto;}
-.pricing-card{position:relative;background:white;border-radius:20px;box-shadow:0 10px 25px rgba(0,0,0,0.08);padding:30px;max-width:380px;overflow:hidden;transition:transform 0.3s ease,box-shadow 0.3s ease;}
-.pricing-card::before{content:"";position:absolute;inset:0;border-radius:20px;border:2px solid transparent;background:linear-gradient(90deg,transparent,rgba(37,99,235,0.9),transparent) border-box;mask:linear-gradient(#fff 0 0) padding-box,linear-gradient(#fff 0 0);-webkit-mask-composite:destination-out;opacity:0;pointer-events:none;}
-.pricing-card:hover::before{opacity:1;animation:moveLight 1.5s linear infinite;}
-@keyframes moveLight{0%{background-position:0% 50%;}100%{background-position:200% 50%;}}
-.pricing-card:hover{transform:translateY(-6px);box-shadow:0 15px 35px rgba(37,99,235,0.18);}
-.price{font-size:1.9rem;font-weight:bold;color:#0f172a;}
-.old{text-decoration:line-through;color:#94a3b8;font-size:1rem;margin-right:6px;}
-.badge{background:#2563eb;color:white;font-size:0.8rem;font-weight:bold;padding:5px 12px;border-radius:20px;display:inline-block;margin-bottom:8px;}
-.pricing-card ul{list-style:none;text-align:left;margin:25px 0;padding:0;}
-.pricing-card ul li{padding:8px 0;border-bottom:1px solid #e2e8f0;}
-.buttons{display:flex;flex-direction:column;gap:10px;margin-top:20px;}
-.btn{padding:12px 16px;border-radius:10px;font-weight:600;display:inline-flex;align-items:center;justify-content:center;gap:8px;transition:all 0.3s;font-size:0.95rem;text-decoration:none;}
-.btn.primary{background:#2563eb;color:white;}
-.btn.primary:hover{background:#1e40af;}
-.btn.secondary{background:#e2e8f0;color:#1e293b;}
-.btn.secondary:hover{background:#cbd5e1;}
-.duration{margin-top:40px;color:#475569;}
+/* -------------------------
+   HERO
+   ------------------------- */
+.hero{height:100vh;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;padding:1rem;position:relative;background:url('https://images.unsplash.com/photo-1523240795612-9a054b0db644?auto=format&fit=crop&w=1920&q=80') center/cover no-repeat}
+.hero::before{content:"";position:absolute;inset:0;background:rgba(0,0,0,0.55);z-index:0}
+.hero .wrap{position:relative;z-index:2;max-width:1100px;padding:0 1rem}
+.hero h2{font-size:var(--fs-h1);color:#FFD54F;font-weight:800;margin-bottom:.6rem;line-height:1;animation:slideDown .9s cubic-bezier(.2,.9,.3,1) both}
+.hero p{font-size:calc(var(--fs-base) + .1rem);color:#fff;max-width:780px;margin:0 auto 1.6rem;animation:slideDown 1.1s cubic-bezier(.2,.9,.3,1) both}
+@keyframes slideDown{from{opacity:0;transform:translateY(-30px)}to{opacity:1;transform:translateY(0)}}
+.btn-primary{display:inline-block;padding:.9rem 1.6rem;border-radius:50px;background:linear-gradient(90deg,#fff,#f0f8ff);color:var(--primary);font-weight:800;text-decoration:none;box-shadow:0 6px 18px rgba(0,0,0,0.12);transition:transform .18s,background .18s}
+.btn-primary:hover{transform:translateY(-4px);background:var(--primary);color:#fff}
 
-/* ===== CTA ===== */
-.cta{background:linear-gradient(135deg,#0078ff,#00c8ff);color:white;padding:4rem 2rem;border-radius:20px;max-width:900px;margin:3rem auto;text-align:center;}
-.cta-btn{background:white;color:#0078ff;padding:0.8rem 1.6rem;border-radius:30px;text-decoration:none;font-weight:600;transition:all 0.3s;}
-.cta-btn:hover{background:#e0f3ff;transform:scale(1.05);}
+/* responsive hero sizes */
+@media(max-width:1024px){.hero h2{font-size:2.6rem}.hero p{font-size:1rem}}
+@media(max-width:480px){.hero h2{font-size:2rem}.hero p{font-size:.95rem}}
 
-/* ===== FOOTER ===== */
-footer{background:#0078ff;color:white;text-align:center;padding:2rem;margin-top:5rem;}
+/* -------------------------
+   GENERAL SECTIONS
+   ------------------------- */
+section{padding:4.5rem 1.25rem}
+.container{max-width:1200px;margin:0 auto}
+.section-title{font-size:var(--fs-h2);color:var(--primary);margin-bottom:.6rem}
+.lead{color:var(--muted);margin-bottom:1.4rem;font-size:var(--fs-base)}
 
-/* ===== HOTMART MODAL ===== */
-.hotmart-modal{display:none;position:fixed;z-index:99999;inset:0;background:rgba(0,0,0,0.6);justify-content:center;align-items:center;padding:20px;}
-.hotmart-modal-content{position:relative;width:100%;max-width:700px;background:white;border-radius:12px;overflow:hidden;box-shadow:0 10px 40px rgba(0,0,0,0.25);}
-.hotmart-modal iframe{width:100%;height:600px;border:none;}
-.close-btn{position:absolute;top:10px;right:18px;font-size:1.8rem;color:#333;cursor:pointer;}
+/* cards grid */
+.courses{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:1.25rem}
+.card{background:#fff;border-radius:16px;padding:1.25rem;box-shadow:0 6px 18px rgba(0,0,0,0.06);transition:transform .22s,box-shadow .22s}
+.card img{width:100%;border-radius:10px;margin-bottom:.9rem}
+.card h3{font-size:1.05rem;margin-bottom:.4rem}
+.card p{color:#444;font-size:.95rem}
 
-/* ===== WHATSAPP FLOAT ===== */
-.whatsapp-float{position:fixed;bottom:25px;right:25px;background:#25D366;color:white;border-radius:50%;width:60px;height:60px;display:flex;justify-content:center;align-items:center;font-size:1.8rem;box-shadow:0 5px 15px rgba(0,0,0,0.3);transition:transform 0.3s;}
-.whatsapp-float:hover{transform:scale(1.1);}
+/* -------------------------
+   IDIOMAS - buttons with flags
+   ------------------------- */
+.flag-btn{display:inline-flex;align-items:center;gap:.6rem;padding:.6rem .9rem;border-radius:10px;background:var(--primary);color:#fff;font-weight:700;text-decoration:none;box-shadow:0 6px 18px rgba(0,0,0,0.09);transition:transform .16s}
+.flag-btn img{width:24px;height:16px;object-fit:cover;border-radius:2px;display:block}
+.flag-btn:hover{transform:translateY(-4px);background:var(--primary-dark)}
+
+/* center the flag and text nicely, small screens adjust */
+@media(max-width:480px){.flag-btn{padding:.55rem .8rem;font-size:.95rem} .flag-btn img{width:20px;height:14px}}
+
+/* -------------------------
+   NOSOTROS
+   ------------------------- */
+.about-card{display:flex;gap:1.25rem;background:#fff;border-radius:16px;padding:1.25rem;box-shadow:0 8px 22px rgba(0,0,0,0.06);align-items:center}
+.about-image img{width:320px;max-width:40vw;border-radius:10px}
+.about-text p{color:#444}
+@media(max-width:900px){.about-card{flex-direction:column} .about-image img{max-width:80%}}
+
+/* -------------------------
+   PRECIOS
+   ------------------------- */
+.pricing{background:#f8fafc;padding-top:3.5rem;padding-bottom:3.5rem}
+.pricing-container{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:1rem;align-items:start;max-width:1200px;margin:0 auto}
+.pricing-card{position:relative;background:#fff;border-radius:14px;padding:1.25rem;box-shadow:var(--card-shadow);overflow:hidden;transform:translateY(20px);opacity:0;transition:transform .5s ease,opacity .5s ease}
+.pricing-card.visible{transform:translateY(0);opacity:1}
+.pricing-card h3{color:var(--primary);font-size:1.1rem;margin-bottom:.25rem}
+.price{font-size:1.55rem;font-weight:800;color:#0f172a;margin-bottom:.45rem}
+.price .old{font-size:0.95rem;text-decoration:line-through;color:#94a3b8;margin-right:.5rem}
+.pricing-card ul{list-style:none;padding:0;margin:0 0 1rem 0}
+.pricing-card ul li{padding:.6rem 0;border-bottom:1px solid #eef2f8;color:#334155;font-size:.95rem}
+.buttons{display:flex;flex-direction:column;gap:.6rem;margin-top:.9rem}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:.6rem;padding:.6rem .8rem;border-radius:10px;border:none;cursor:pointer}
+.btn.primary{background:var(--primary);color:#fff;font-weight:700}
+.btn.primary:hover{background:var(--primary-dark)}
+.btn.secondary{background:#eef2f8;color:#0f172a;font-weight:700}
+.badge{display:inline-block;background:var(--primary);color:#fff;padding:.4rem .65rem;border-radius:999px;font-size:0.85rem;font-weight:800;box-shadow:0 6px 18px rgba(37,99,235,0.14)}
+
+/* animated border light effect */
+.pricing-card::before{content:"";position:absolute;inset:0;border-radius:14px;padding:2px;pointer-events:none;background:conic-gradient(transparent,rgba(37,99,235,0.95),transparent);mask:linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);-webkit-mask-composite:destination-out;opacity:0;transition:opacity .32s}
+.pricing-card:hover::before{opacity:1;animation:spin 2.2s linear infinite}
+@keyframes spin{from{transform:rotate(0deg)}to{transform:rotate(360deg)}}
+
+/* Keep bigger card width on large screens */
+@media(min-width:1200px){.pricing-card{max-width:420px;margin:0 auto}}
+
+/* -------------------------
+   CTA - Contact button
+   ------------------------- */
+.cta{margin-top:2.2rem;background:linear-gradient(135deg,var(--primary),#00c8ff);color:#fff;padding:2.2rem;border-radius:12px;text-align:center;max-width:920px;margin-left:auto;margin-right:auto}
+.cta .cta-btn{display:inline-block;margin-top:1rem;padding:.75rem 1.2rem;border-radius:999px;background:#fff;color:var(--primary);font-weight:800;text-decoration:none;box-shadow:0 8px 28px rgba(2,6,23,0.12)}
+.cta .cta-btn:hover{transform:translateY(-4px);background:#e9f4ff}
+
+/* ensure the CTA doesn't overlap */
+.section-bottom-space{height:3rem}
+
+/* -------------------------
+   HOTMART MODAL
+   ------------------------- */
+.hotmart-modal{display:none;position:fixed;inset:0;background:rgba(0,0,0,0.6);z-index:1400;align-items:center;justify-content:center;padding:1rem}
+.hotmart-modal-content{background:#fff;border-radius:12px;width:100%;max-width:820px;overflow:hidden;box-shadow:0 20px 50px rgba(0,0,0,0.25)}
+.hotmart-modal iframe{width:100%;height:620px;border:none}
+.close-btn{position:absolute;top:12px;right:16px;font-size:1.6rem;color:#333;cursor:pointer;padding:.4rem}
+
+/* responsive adjustments for iframe and sizes */
+@media(max-width:1024px){.hotmart-modal iframe{height:520px}}
+@media(max-width:480px){.hotmart-modal iframe{height:420px} .logo img{height:34px} .logo h1{font-size:0.98rem}}
+
+/* -------------------------
+   WHATSAPP FLOAT
+   ------------------------- */
+.whatsapp-float{position:fixed;right:18px;bottom:20px;background:#25D366;color:#fff;width:56px;height:56px;border-radius:50%;display:flex;align-items:center;justify-content:center;box-shadow:0 10px 30px rgba(0,0,0,0.15);z-index:1500}
+.whatsapp-float i{font-size:22px}
+
+/* small screens adjustments */
+@media(max-width:480px){
+  nav{padding:0.6rem 0.8rem}
+  section{padding:3rem 0.9rem}
+  .logo img{height:34px}
+  .logo h1{font-size:1rem}
+}
   </style>
 </head>
-
 <body>
-<header>
-  <nav>
-    <div class="logo">
-      <img src="https://github.com/ricardocontrerashn/myteachingworld-assets/blob/main/Logo.png?raw=true" alt="Logo">
-      <h1>My Teaching World</h1>
+
+  <!-- HEADER -->
+  <header>
+    <nav class="container" aria-label="Main navigation">
+      <div class="logo">
+        <img src="https://github.com/ricardocontrerashn/myteachingworld-assets/blob/main/Logo.png?raw=true" alt="My Teaching World logo">
+        <h1>My Teaching World</h1>
+      </div>
+
+      <div id="menu-toggle" class="menu-toggle" aria-label="Abrir menú" role="button" tabindex="0">
+        <span></span><span></span><span></span>
+      </div>
+
+      <ul id="nav-links">
+        <li><a href="#inicio">Inicio</a></li>
+        <li><a href="#ingles">Inglés</a></li>
+        <li><a href="#idiomas">Idiomas</a></li>
+        <li><a href="#nosotros">Nosotros</a></li>
+        <li><a href="#precios">Precios</a></li>
+        <li><a href="#contacto">Contacto</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- HERO -->
+  <section class="hero" id="inicio" aria-label="Inicio">
+    <div class="wrap">
+      <h2>Education without borders</h2>
+      <p>Aprende inglés y otros idiomas desde cualquier parte del mundo con clases en vivo, libros digitales y acompañamiento personalizado.</p>
+      <a href="#ingles" class="btn-primary">Explorar Cursos</a>
     </div>
-    <div class="menu-toggle" id="menu-toggle"><span></span><span></span><span></span></div>
-    <ul>
-      <li><a href="#inicio">Inicio</a></li>
-      <li><a href="#ingles">Inglés</a></li>
-      <li><a href="#idiomas">Idiomas</a></li>
-      <li><a href="#nosotros">Nosotros</a></li>
-      <li><a href="#precios">Precios</a></li>
-      <li><a href="#contacto">Contacto</a></li>
-    </ul>
-  </nav>
-</header>
+  </section>
 
-<section class="hero" id="inicio">
-  <h2>Education without borders</h2>
-  <p>Aprende inglés y otros idiomas desde cualquier parte del mundo.</p>
-  <a href="#ingles" class="btn-primary">Explorar Cursos</a>
-</section>
+  <!-- INGLÉS -->
+  <section id="ingles" class="container fade-in" aria-label="Inglés">
+    <h2 class="section-title">Curso de Inglés Online</h2>
+    <p class="lead">Aprende inglés con profesores certificados y una metodología práctica para hablar con confianza.</p>
+    <div class="courses">
+      <article class="card">
+        <img src="https://github.com/ricardocontrerashn/myteachingworld-assets/blob/main/Adultos%20Online.png?raw=true" alt="Inglés adultos">
+        <h3>Inglés para Adultos</h3>
+        <p>Clases dinámicas enfocadas en conversación y comprensión real.</p>
+      </article>
 
-<section id="ingles" class="fade-in">
-  <h2>Curso de Inglés Online</h2>
-  <p>Aprende inglés con profesores certificados y clases en vivo.</p>
-  <div class="courses">
-    <div class="card"><img src="https://github.com/ricardocontrerashn/myteachingworld-assets/blob/main/Adultos%20Online.png?raw=true"><h3>Inglés para Adultos</h3><p>Desarrolla confianza con clases interactivas.</p></div>
-    <div class="card"><img src="https://github.com/ricardocontrerashn/myteachingworld-assets/blob/main/Ninos.png?raw=true"><h3>Inglés para Niños</h3><p>Aprende jugando con clases divertidas.</p></div>
+      <article class="card">
+        <img src="https://github.com/ricardocontrerashn/myteachingworld-assets/blob/main/Ninos.png?raw=true" alt="Inglés niños">
+        <h3>Inglés para Niños</h3>
+        <p>Aprendizaje divertido con juegos, videos y actividades guiadas.</p>
+      </article>
+    </div>
+  </section>
+
+  <!-- IDIOMAS -->
+  <section id="idiomas" class="container fade-in" aria-label="Idiomas">
+    <h2 class="section-title">Idiomas</h2>
+    <p class="lead">Explora el mundo aprendiendo nuevos idiomas con profesores nativos.</p>
+
+    <div class="courses">
+      <article class="card">
+        <img src="https://github.com/ricardocontrerashn/myteachingworld-assets/blob/main/Frances.jpg?raw=true" alt="Francés">
+        <h3>Francés</h3>
+        <p>Domina el idioma del amor y la cultura.</p>
+        <a class="flag-btn" href="https://wa.me/50433918660?text=Hola!%20Quiero%20una%20muestra%20de%20Francés" target="_blank" rel="noopener">
+          <img src="https://flagcdn.com/w20/fr.png" alt="Bandera Francia"> Solicitar muestra
+        </a>
+      </article>
+
+      <article class="card">
+        <img src="https://github.com/ricardocontrerashn/myteachingworld-assets/blob/main/Italiano.jpg?raw=true" alt="Italiano">
+        <h3>Italiano</h3>
+        <p>Aprende a comunicarte como un verdadero italiano.</p>
+        <a class="flag-btn" href="https://wa.me/50433918660?text=Hola!%20Quiero%20una%20muestra%20de%20Italiano" target="_blank" rel="noopener">
+          <img src="https://flagcdn.com/w20/it.png" alt="Bandera Italia"> Solicitar muestra
+        </a>
+      </article>
+
+      <article class="card">
+        <img src="https://github.com/ricardocontrerashn/myteachingworld-assets/blob/main/Aleman.jpg?raw=true" alt="Alemán">
+        <h3>Alemán</h3>
+        <p>Domina el idioma de la ciencia y la ingeniería.</p>
+        <a class="flag-btn" href="https://wa.me/50433918660?text=Hola!%20Quiero%20una%20muestra%20de%20Alem%C3%A1n" target="_blank" rel="noopener">
+          <img src="https://flagcdn.com/w20/de.png" alt="Bandera Alemania"> Solicitar muestra
+        </a>
+      </article>
+    </div>
+  </section>
+
+  <!-- NOSOTROS -->
+  <section id="nosotros" class="container fade-in" aria-label="Nosotros">
+    <h2 class="section-title">Nosotros</h2>
+    <div class="about-card">
+      <div class="about-image"><img src="https://github.com/ricardocontrerashn/myteachingworld-assets/blob/main/babies.png?raw=true" alt="Equipo My Teaching World"></div>
+      <div class="about-text">
+        <p>Somos un equipo apasionado por enseñar idiomas con un enfoque moderno y práctico. Combinamos experiencia, metodología y tecnología para acompañarte en tu aprendizaje.</p>
+        <p>Ofrecemos clases en vivo, material interactivo y seguimiento personalizado durante todo el curso.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- PRECIOS -->
+  <section id="precios" class="pricing container fade-in" aria-label="Precios">
+    <h2 class="section-title">💵 Planes y Precios | Clases de Inglés</h2>
+    <p class="lead">Elige la opción que mejor se adapte a ti</p>
+
+    <div class="pricing-container" id="pricing-grid">
+      <!-- Plan 1 -->
+      <article class="pricing-card" data-index="0" aria-labelledby="plan1">
+        <h3 id="plan1">Clases 1:1</h3>
+        <p class="price"><span class="old">L. 3,200</span> L. 2,999 <span style="font-size:.9rem;color:#64748b">/ mes</span></p>
+        <ul>
+          <li>🕒 Miércoles y Jueves de 5:00 a 6:00 pm</li>
+          <li>📘 Acceso total a la plataforma</li>
+          <li>🎧 Libro digital interactivo</li>
+          <li>📝 Asignaciones semanales</li>
+          <li>💬 Tips semanales y asesor exclusivo</li>
+        </ul>
+        <div class="buttons">
+          <a class="btn primary" href="#" title="Pagar con Stripe"><i class="fa-brands fa-cc-stripe"></i> Pagar con Stripe</a>
+          <a class="btn secondary" href="https://wa.me/50433918660?text=Hola!%20Quiero%20una%20prueba%20del%20curso%201:1" target="_blank" rel="noopener"><i class="fa-brands fa-whatsapp"></i> Solicitar prueba</a>
+        </div>
+      </article>
+
+      <!-- Plan 2 -->
+      <article class="pricing-card" data-index="1" aria-labelledby="plan2">
+        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:.4rem">
+          <span class="badge">Más popular</span>
+        </div>
+        <h3 id="plan2">Clases Grupales</h3>
+        <p class="price"><span class="old">L. 2,500</span> L. 2,299 <span style="font-size:.9rem;color:#64748b">/ mes</span></p>
+        <ul>
+          <li>👥 Lunes y Martes de 5:00 a 6:00 pm</li>
+          <li>📘 Acceso total a la plataforma</li>
+          <li>🎧 Libro digital interactivo</li>
+          <li>📝 Asignaciones semanales</li>
+          <li>💬 Tips semanales y asesor exclusivo</li>
+        </ul>
+        <div class="buttons">
+          <button class="btn primary" onclick="openHotmartModal()" aria-haspopup="dialog"><i class="fa-brands fa-hotjar"></i> Pagar con Hotmart</button>
+          <a class="btn secondary" href="https://wa.me/50433918660?text=Hola!%20Quiero%20una%20prueba%20del%20curso%20grupal" target="_blank" rel="noopener"><i class="fa-brands fa-whatsapp"></i> Solicitar prueba</a>
+        </div>
+      </article>
+
+      <!-- Plan 3 -->
+      <article class="pricing-card" data-index="2" aria-labelledby="plan3">
+        <h3 id="plan3">Cursos Grabados</h3>
+        <p class="price"><span class="old">L. 1,600</span> L. 1,499 <span style="font-size:.9rem;color:#64748b">/ mes</span></p>
+        <ul>
+          <li>🎥 2 videos de 1 hora cada semana</li>
+          <li>📘 Acceso total a la plataforma</li>
+          <li>🎧 Libro digital interactivo</li>
+          <li>💬 Tips y acompañamiento</li>
+        </ul>
+        <div class="buttons">
+          <a class="btn primary" href="#" title="Pagar con BAC"><i class="fa-solid fa-building-columns"></i> Pagar con BAC</a>
+          <a class="btn secondary" href="https://wa.me/50433918660?text=Hola!%20Quiero%20una%20prueba%20del%20curso%20grabado" target="_blank" rel="noopener"><i class="fa-brands fa-whatsapp"></i> Solicitar prueba</a>
+        </div>
+      </article>
+    </div>
+
+    <p class="duration" style="text-align:center;margin-top:1rem;color:#475569">📅 Duración total del curso: <strong>1.5 años</strong></p>
+  </section>
+
+  <!-- CTA / CONTACT -->
+  <section class="container fade-in" aria-label="Contacto">
+    <div class="cta">
+      <h3 style="margin:0;font-size:1.4rem">Comienza tu aventura de aprendizaje hoy</h3>
+      <p style="margin:.6rem 0 0;color:#e6f2ff">Únete a una comunidad global que aprende, crea e innova.</p>
+      <a id="contact-btn" class="cta-btn" href="https://wa.me/50433918660?text=Necesito%20m%C3%A1s%20informaci%C3%B3n" target="_blank" rel="noopener">Contáctanos</a>
+    </div>
+  </section>
+
+  <div class="section-bottom-space"></div>
+
+  <!-- FOOTER -->
+  <footer style="padding:1.2rem 0;text-align:center;background:var(--primary);color:#fff">
+    <div class="container"><small>© 2025 My Teaching World. Todos los derechos reservados.</small></div>
+  </footer>
+
+  <!-- HOTMART MODAL -->
+  <div id="hotmartModal" class="hotmart-modal" role="dialog" aria-hidden="true" aria-labelledby="hotmart-title">
+    <div class="hotmart-modal-content" role="document">
+      <button class="close-btn" aria-label="Cerrar" onclick="closeHotmartModal()">✕</button>
+      <iframe id="hotmartFrame" src="" allow="payment"></iframe>
+    </div>
   </div>
-</section>
 
-<section id="idiomas" class="fade-in">
-  <h2>Idiomas</h2>
-  <p>Explora el mundo aprendiendo nuevos idiomas con profesores nativos.</p>
-  <div class="courses">
-    <div class="card">
-      <img src="https://github.com/ricardocontrerashn/myteachingworld-assets/blob/main/Frances.jpg?raw=true">
-      <h3>Francés</h3><p>Domina el idioma del amor y la cultura.</p>
-      <a href="https://wa.me/50433918660?text=Hola!%20Quiero%20una%20muestra%20de%20Francés" class="flag-btn"><img src="https://flagcdn.com/w20/fr.png"> Solicitar muestra</a>
-    </div>
-    <div class="card">
-      <img src="https://github.com/ricardocontrerashn/myteachingworld-assets/blob/main/Italiano.jpg?raw=true">
-      <h3>Italiano</h3><p>Aprende a comunicarte como un verdadero italiano.</p>
-      <a href="https://wa.me/50433918660?text=Hola!%20Quiero%20una%20muestra%20de%20Italiano" class="flag-btn"><img src="https://flagcdn.com/w20/it.png"> Solicitar muestra</a>
-    </div>
-    <div class="card">
-      <img src="https://github.com/ricardocontrerashn/myteachingworld-assets/blob/main/Aleman.jpg?raw=true">
-      <h3>Alemán</h3><p>Domina el idioma de la ciencia y la ingeniería.</p>
-      <a href="https://wa.me/50433918660?text=Hola!%20Quiero%20una%20muestra%20de%20Alemán" class="flag-btn"><img src="https://flagcdn.com/w20/de.png"> Solicitar muestra</a>
-    </div>
-  </div>
-</section>
+  <!-- WHATSAPP FLOAT -->
+  <a href="https://wa.me/50433918660?text=Hola!%20Quiero%20m%C3%A1s%20informaci%C3%B3n" class="whatsapp-float" target="_blank" aria-label="WhatsApp">
+    <i class="fab fa-whatsapp"></i>
+  </a>
 
-<section id="nosotros" class="about fade-in">
-  <h2>Nosotros</h2>
-  <div class="about-card">
-    <div class="about-image"><img src="https://github.com/ricardocontrerashn/myteachingworld-assets/blob/main/babies.png?raw=true"></div>
-    <div class="about-text"><p>Somos un equipo apasionado por enseñar inglés y otros idiomas con un enfoque moderno y práctico.</p><p>Combinamos tecnología y acompañamiento personalizado para guiarte paso a paso.</p></div>
-  </div>
-</section>
+  <!-- SCRIPTS -->
+  <script>
+  // ---------- NAV / HAMBURGER ----------
+  const toggle = document.getElementById('menu-toggle');
+  const navLinks = document.getElementById('nav-links');
+  toggle.addEventListener('click', () => {
+    navLinks.classList.toggle('show');
+    toggle.classList.toggle('active');
+  });
+  // Also allow keyboard toggling
+  toggle.addEventListener('keydown', (e) => { if(e.key === 'Enter' || e.key === ' ') { e.preventDefault(); toggle.click(); } });
 
-<!-- (Precios y CTA igual que versión anterior) -->
-<section id="precios" class="pricing fade-in"> ... </section>
+  // Close nav when clicking a link on mobile
+  document.querySelectorAll('#nav-links a').forEach(a => a.addEventListener('click', () => {
+    if(window.innerWidth <= 1024) { navLinks.classList.remove('show'); toggle.classList.remove('active'); }
+  }));
 
-<div class="cta fade-in" id="contacto">
-  <h3>Comienza tu aventura de aprendizaje hoy</h3>
-  <p>Únete a una comunidad global que aprende, crea e innova.</p>
-  <a href="https://wa.me/50433918660?text=Necesito%20más%20información" target="_blank" class="cta-btn">Contáctanos</a>
-</div>
+  // ---------- FADE-IN ON SCROLL (sections) ----------
+  const scrollObserver = new IntersectionObserver((entries)=>{
+    entries.forEach(entry=>{
+      if(entry.isIntersecting){ entry.target.classList.add('visible'); scrollObserver.unobserve(entry.target); }
+    });
+  }, {threshold: 0.18});
 
-<footer><p>© 2025 My Teaching World. Todos los derechos reservados.</p></footer>
+  document.querySelectorAll('.fade-in').forEach(el => scrollObserver.observe(el));
 
-<a href="https://wa.me/50433918660?text=Hola!%20Quiero%20más%20información" class="whatsapp-float" target="_blank"><i class="fab fa-whatsapp"></i></a>
+  // ---------- PRICING CARDS STAGGERED APPEAR ----------
+  // We'll reveal pricing cards sequentially with delays
+  const pricingCards = document.querySelectorAll('.pricing-card');
+  const cardObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if(entry.isIntersecting){
+        // add with stagger
+        pricingCards.forEach((card, i) => {
+          setTimeout(()=> card.classList.add('visible'), i * 160);
+        });
+        cardObserver.disconnect();
+      }
+    });
+  }, {threshold: 0.12});
+  if(pricingCards.length) cardObserver.observe(pricingCards[0]);
 
-<script>
-// Menú responsive
-const toggle=document.getElementById('menu-toggle'),navLinks=document.querySelector('nav ul');
-toggle.addEventListener('click',()=>{navLinks.classList.toggle('show');toggle.classList.toggle('active');});
+  // ---------- HOTMART MODAL ----------
+  function importHotmart(){
+    // Load widget if desired (keeps as fallback but we are using iframe modal)
+    const s = document.createElement('script');
+    s.src = 'https://static.hotmart.com/checkout/widget.min.js';
+    s.async = true;
+    document.head.appendChild(s);
 
-// Animación fade-in
-const faders=document.querySelectorAll('.fade-in');
-const observer=new IntersectionObserver(entries=>{entries.forEach(entry=>{if(entry.isIntersecting){entry.target.classList.add('visible');}});},{threshold:0.2});
-faders.forEach(el=>observer.observe(el));
-</script>
+    const l = document.createElement('link');
+    l.rel = 'stylesheet';
+    l.href = 'https://static.hotmart.com/css/hotmart-fb.min.css';
+    document.head.appendChild(l);
+  }
+  importHotmart();
+
+  function openHotmartModal(){
+    const modal = document.getElementById('hotmartModal');
+    const frame = document.getElementById('hotmartFrame');
+    // Hotmart checkout url (your link)
+    frame.src = 'https://pay.hotmart.com/M102901561B?checkoutMode=2';
+    modal.style.display = 'flex';
+    modal.setAttribute('aria-hidden', 'false');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeHotmartModal(){
+    const modal = document.getElementById('hotmartModal');
+    const frame = document.getElementById('hotmartFrame');
+    frame.src = '';
+    modal.style.display = 'none';
+    modal.setAttribute('aria-hidden', 'true');
+    document.body.style.overflow = '';
+  }
+  // close when clicking outside content
+  document.getElementById('hotmartModal').addEventListener('click', (ev) => {
+    if(ev.target.id === 'hotmartModal') closeHotmartModal();
+  });
+
+  // close with escape key
+  document.addEventListener('keydown', (e) => {
+    if(e.key === 'Escape') closeHotmartModal();
+  });
+
+  // ---------- small protective adjustments ----------
+  // Ensure menu is visible if starting on wide screens after resize
+  window.addEventListener('resize', () => {
+    if(window.innerWidth > 1024){ navLinks.classList.remove('show'); toggle.classList.remove('active'); }
+  });
+  </script>
 </body>
 </html>
