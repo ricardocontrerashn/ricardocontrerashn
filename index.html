@@ -569,11 +569,7 @@ footer p {margin: 0.3rem 0;}
 }
 
 /* Hover elegante */
-.pricing-card:hover {
-  transform: scale(1.02);
-  /*box-shadow: 0 15px 35px rgba(0,0,0,0.12);*/
-  transition: all 0.3s ease;
-}
+
 
 /* Mantén tus cards anchas solo en desktop */
 @media (min-width: 1024px) {
@@ -823,29 +819,29 @@ footer p {margin: 0.3rem 0;}
       </div>
     </div>
 
-    <!-- Plan 2: Clases Grupales -->
-    <div class="pricing-card highlight">
-      <div class="badge">Más popular</div>
-      <h3>Clases Grupales</h3>
-      <p class="price">
-        <span class="old">L. 2,500</span> L. 2,299 <span>/ mes</span>
-      </p>
-      <ul>
-        <li>👥 Lunes y Martes de 5:00 a 6:00 pm</li>
-        <li>📘 Acceso total a la plataforma</li>
-        <li>🎧 Libro digital interactivo</li>
-        <li>📝 Asignaciones semanales</li>
-        <li>💬 Tips semanales y asesor exclusivo</li>
-      </ul>
-      <div class="buttons">
-        <a href="#" 
-   onclick="openHotmartCheckout('https://pay.hotmart.com/M102901561B?checkoutMode=2'); return false;" 
-   class="btn primary">
-  <i class="fa-brands fa-hotjar"></i> Pagar con Hotmart
-</a>
-        <a href="https://wa.me/50433918660?text=Hola!%20Quiero%20una%20prueba%20del%20curso%20grupal" class="btn secondary"><i class="fa-brands fa-whatsapp"></i> Solicitar prueba</a>
-      </div>
-    </div>
+<!-- Plan 2: Clases Grupales -->
+<div class="pricing-card highlight">
+  <div class="badge">Más popular</div>
+  <h3>Clases Grupales</h3>
+  <p class="price">
+    <span class="old">L. 2,500</span> L. 2,299 <span>/ mes</span>
+  </p>
+  <ul>
+    <li>👥 Lunes y Martes de 5:00 a 6:00 pm</li>
+    <li>📘 Acceso total a la plataforma</li>
+    <li>🎧 Libro digital interactivo</li>
+    <li>📝 Asignaciones semanales</li>
+    <li>💬 Tips semanales y asesor exclusivo</li>
+  </ul>
+  <div class="buttons">
+    <button class="btn primary hotmart-btn" onclick="openHotmartModal()">
+      <i class="fa-brands fa-hotjar"></i> Pagar con Hotmart
+    </button>
+    <a href="https://wa.me/50433918660?text=Hola!%20Quiero%20una%20prueba%20del%20curso%20grupal"
+       class="btn secondary"><i class="fa-brands fa-whatsapp"></i> Solicitar prueba</a>
+  </div>
+</div>
+
 
     <!-- Plan 3: Cursos Grabados -->
     <div class="pricing-card">
