@@ -234,7 +234,8 @@ footer {background:#0078ff; color:white; text-align:center; padding:2rem; margin
         <p class="price"><span class="old">L. 2,600</span> L. 2,399 <span>/ mes</span></p>
         <ul><li>👥 Lunes y Martes de 5:00 a 6:00 pm</li><li>📘 Acceso total a la plataforma</li><li>🎧 Libro digital interactivo</li><li>📝 Asignaciones semanales</li><li>💬 Tips semanales y asesor exclusivo</li></ul>
         <div class="buttons">
-          <a href="https://www.paypal.com/ncp/payment/JWMU2HW3T2KMG" class="btn paypal" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-paypal"></i> Pagar con PayPal</a>
+         <!-- Botón PayPal en ventana -->
+          <button class="btn paypal" onclick="openPayPalModal()"> <i class="fa-brands fa-paypal"></i> Pagar con PayPal</button>
           <button class="btn primary" onclick="openHotmartModal()"><i class="fa-brands fa-hotjar"></i> Pagar con Hotmart</button>
           <a href="https://wa.me/50433918660?text=Hola!%20Quiero%20una%20prueba%20del%20curso%20grupal" class="btn secondary"><i class="fa-brands fa-whatsapp"></i> Solicitar prueba</a></div>       
       </div>
@@ -267,6 +268,20 @@ footer {background:#0078ff; color:white; text-align:center; padding:2rem; margin
     </div>
   </div>
 
+  <!-- Modal PayPal -->
+<div id="paypalModal" class="modal">
+  <div class="modal-content">
+    <span class="close" onclick="closePayPalModal()">&times;</span>
+
+    <iframe 
+      src="https://www.paypal.com/ncp/payment/JWMU2HW3T2KMG"
+      style="width:100%; height:600px; border:none;"
+      allow="payment"
+    ></iframe>
+  </div>
+</div>
+
+
   <!-- WHATSAPP FLOAT -->
   <a href="https://wa.me/50433918660?text=Hola!%20Quiero%20más%20información" class="whatsapp-float" target="_blank"><i class="fab fa-whatsapp"></i></a>
 
@@ -286,6 +301,13 @@ footer {background:#0078ff; color:white; text-align:center; padding:2rem; margin
   function closeHotmartModal(){const modal=document.getElementById("hotmartModal"),iframe=document.getElementById("hotmartFrame");iframe.src="";modal.style.display="none";}
   window.onclick=function(e){const modal=document.getElementById("hotmartModal");if(e.target===modal)closeHotmartModal();}
   </script>
+
+  <script>
+  function openPayPalModal() {document.getElementById("paypalModal").style.display = "block";}
+  function closePayPalModal() {document.getElementById("paypalModal").style.display = "none";}
+  // cerrar si hace clic afuera
+  window.onclick = function(event) { var modal = document.getElementById("paypalModal"); if (event.target == modal) {modal.style.display = "none";}};
+</script>
 
 <script>const cards=document.querySelectorAll('.pricing-card');cards.forEach(c=>c.addEventListener('click',()=>{cards.forEach(x=>x.classList.remove('active'));c.classList.add('active');}));</script>
 
