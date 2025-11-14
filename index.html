@@ -152,6 +152,57 @@ footer {background:#0078ff; color:white; text-align:center; padding:2rem; margin
 /* ===== BOTON PAYPAL ===== */
 .btn.paypal {background-color: #003087;color: #fff;}
 .btn.paypal:hover {background-color: #001f5c;color: #fff;}
+
+    /* Modal fondo */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 9999;
+  padding-top: 30px;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0,0,0,0.6);
+}
+
+/* Contenido */
+.modal-content {
+  background: #fff;
+  margin: auto;
+  padding: 0;
+  border-radius: 14px;
+  width: 90%;
+  max-width: 700px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+  animation: fadeIn 0.2s ease-in-out;
+}
+
+/* Botón cerrar */
+.close {
+  color: #333;
+  float: right;
+  font-size: 32px;
+  font-weight: bold;
+  margin-right: 12px;
+  cursor: pointer;
+}
+
+.close:hover {
+  color: #000;
+}
+
+/* Botón PayPal */
+.btn.paypal {
+  background-color: #003087;
+  color: white;
+}
+
+.btn.paypal:hover {
+  background-color: #001f5c;
+}
+
     
   </style>
 </head>
@@ -308,9 +359,9 @@ footer {background:#0078ff; color:white; text-align:center; padding:2rem; margin
   function closePayPalModal() {document.getElementById("paypalModal").style.display = "none";}
   // cerrar si hace clic afuera
   window.onclick = function(event) { var modal = document.getElementById("paypalModal"); if (event.target == modal) {modal.style.display = "none";}};
-</script>
+  </script>
 
-<script>const cards=document.querySelectorAll('.pricing-card');cards.forEach(c=>c.addEventListener('click',()=>{cards.forEach(x=>x.classList.remove('active'));c.classList.add('active');}));</script>
+  <script>const cards=document.querySelectorAll('.pricing-card');cards.forEach(c=>c.addEventListener('click',()=>{cards.forEach(x=>x.classList.remove('active'));c.classList.add('active');}));</script>
 
   
 </body>
