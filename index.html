@@ -167,6 +167,24 @@ border:none;cursor:pointer;box-shadow:0 4px 10px rgba(255,106,0,.3)}.btn-hotmart
 .btn-wsp{display:inline-block;padding:12px 24px;font-size:16px;font-weight:600;color:#fff;border-radius:8px;text-decoration:none;background:#25D366;transition:all .25s ease;
 box-shadow:0 4px 10px rgba(37,211,102,.3)}.btn-wsp i{margin-right:8px}.btn-wsp:hover{background:#1EBE5A;box-shadow:0 6px 15px rgba(30,190,90,.45);transform:translateY(-2px)}
 
+/* === UNIFICAR FONDO GRIS EN TODAS LAS SECCIONES PRINCIPALES === */
+#ingles,
+#idiomas,
+#nosotros,
+#precios {
+  background: #f8fafc !important;
+}
+
+/* Fondo gris debajo del CTA */
+.cta-section {
+  background: #f8fafc;
+  padding: 5rem 10%;
+}
+
+/* La caja azul del CTA se mantiene igual */
+.cta {
+  background: linear-gradient(135deg,#0078ff,#00c8ff);
+}    
     
   </style>
 </head>
@@ -288,11 +306,14 @@ box-shadow:0 4px 10px rgba(37,211,102,.3)}.btn-wsp i{margin-right:8px}.btn-wsp:h
   </section>
 
   <!-- CTA -->
+<section class="cta-section">
   <div class="cta fade-in" id="contacto">
     <h3>Comienza tu aventura de aprendizaje hoy</h3>
     <p>Únete a una comunidad global que aprende, crea e innova.</p>
     <a href="https://wa.me/50432762899?text=Necesito%20más%20información" target="_blank">Contáctanos</a>
   </div>
+</section>
+
 
   <!-- FOOTER -->
   <footer><p>© 2025 My Teaching World. Todos los derechos reservados.</p></footer>
