@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>Validando enlace de pago...</title>
+<script>
+// ============================
+// LISTA DE HASTA 12 LINKS
+// PEGAR AQUI TUS LINKS
+// ============================
+const links = [
+    "https://hn.ficoposonline.com/tengo/P-a06636af-31c3-4537-b8d9-472e099f5b59/checkout",
+    "https://hn.ficoposonline.com/tengo/P-a063af40-b4ab-42de-947b-74505b1c0ac8/checkout",
+    "https://hn.ficoposonline.com/tengo/P-LINK-3/checkout",
+    "https://hn.ficoposonline.com/tengo/P-LINK-4/checkout",
+    "https://hn.ficoposonline.com/tengo/P-LINK-5/checkout",
+    "https://hn.ficoposonline.com/tengo/P-LINK-6/checkout",
+    "https://hn.ficoposonline.com/tengo/P-LINK-7/checkout",
+    "https://hn.ficoposonline.com/tengo/P-LINK-8/checkout",
+    "https://hn.ficoposonline.com/tengo/P-LINK-9/checkout",
+    "https://hn.ficoposonline.com/tengo/P-LINK-10/checkout",
+    "https://hn.ficoposonline.com/tengo/P-LINK-11/checkout",
+    "https://hn.ficoposonline.com/tengo/P-LINK-12/checkout"
+];
+
+// ============================
+// FUNCIÓN PARA DETECTAR SI YA FUE PAGADO
+// ============================
+async function probarLink(url) {
+    try {
+        const response = await fetch(url, { mode: "no-cors" });
+        // Redirigirá siempre si es válido porque fetch con no-cors no deja leer contenido,
+        // así que probamos cargando directamente en una nueva pestaña.
+        window.location.href = url;
+        return true;
+    } catch (e) {
+        return false;
+    }
+}
+
+// ============================
+// LÓGICA PRINCIPAL
+// ============================
+(async function() {
+    for (let url of links) {
+        // Intentamos redirigir de inmediato
+        let ok = await probarLink(url);
+        if (ok) return;
+    }
+    alert("Todos los enlaces fueron utilizados o están inactivos.\nPor favor inténtelo más tarde.");
+})();
+</script>
+</head>
+<body style="background:white;">
+</body>
+</html>
