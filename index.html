@@ -105,13 +105,14 @@ section p {font-size:1rem; color:#555; margin-bottom:2rem;}
 .pricing-card:hover{transform:translateY(-6px);box-shadow:0 15px 35px rgba(37,99,235,.18);}
 /*@keyframes drawBorderFull{0%{clip-path:inset(100% 100% 0 0);}25%{clip-path:inset(0 100% 0 0);}50%{clip-path:inset(0 0 100% 0);}75%{clip-path:inset(0 0 0 100%);}100%{clip-path:inset(100% 100% 0 0);}}*/
 @keyframes drawBorderFull{
-  0%{clip-path:inset(100% 100% 0 0);}
-  25%{clip-path:inset(0 100% 0 0);}
-  50%{clip-path:inset(0 0 100% 0);}
-  75%{clip-path:inset(0 0 0 100%);}
-  99%{clip-path:inset(98% 100% 0 0);}   /* transición suave antes de cerrar */
-  100%{clip-path:inset(100% 100% 0 0);} /* esquina inferior izquierda */
+  0%{clip-path:inset(100% 100% 0 0);}          /* esquina inferior izquierda */
+  25%{clip-path:inset(0 100% 0 0);}            /* lado izquierdo */
+  50%{clip-path:inset(0 0 100% 0);}            /* borde superior */
+  75%{clip-path:inset(0 0 0 100%);}            /* lado derecho */
+  90%{clip-path:inset(10% 0 0 90%);}           /* suaviza curva hacia el borde inferior */
+  100%{clip-path:inset(100% 0 0 0);}           /* borde inferior completo */
 }
+
 
 
 
